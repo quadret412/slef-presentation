@@ -1,19 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  async headers() {
-    return [
-      {
-        source: "/Dmitry-Antonov-Resume.pdf",
-        headers: [
-          {
-            key: "Content-Disposition",
-            value: 'attachment; filename="Dmitry-Antonov-Resume.pdf"',
-          },
-        ],
-      },
-    ];
+  output: "export",
+  basePath: process.env.PAGES_BASE_PATH || undefined,
+  images: {
+    unoptimized: true,
   },
+  trailingSlash: true,
 };
 
 export default nextConfig;

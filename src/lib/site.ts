@@ -16,6 +16,10 @@ export function getSiteUrl() {
     return `https://${process.env.VERCEL_URL}`;
   }
 
+  if (process.env.PAGES_BASE_PATH) {
+    return "https://quadret412.github.io/slef-presentation";
+  }
+
   return "http://localhost:3001";
 }
 

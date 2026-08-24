@@ -3,6 +3,8 @@ import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { profile } from "@/data/profile";
 
+export const dynamic = "force-static";
+
 export const alt = `${profile.name}, ${profile.title}. Vue 3, TypeScript, design systems. Remote from ${profile.location}.`;
 export const size = {
   width: 1200,

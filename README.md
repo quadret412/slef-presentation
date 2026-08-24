@@ -7,4 +7,8 @@ npm install
 npm run dev
 ```
 
-Deploy on Vercel from this repository.
+Local URL is `http://localhost:3001`. Production is GitHub Pages:
+
+https://quadret412.github.io/slef-presentation/
+
+A push to `main` builds a static export and deploys it. In the repo, set **Settings → Pages → Source** to **GitHub Actions** once.
