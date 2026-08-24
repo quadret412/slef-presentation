@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useSyncExternalStore } from "react";
 import { useTheme } from "./ThemeProvider";
 import {
   ArcElement,
@@ -40,39 +40,30 @@ export type ChartColors = {
   fill: string;
 };
 
-const darkChartColor: ChartColors = {
-  sand: "#f3ede4",
-  dim: "#c8bdb0",
-  steel: "#8eafc4",
-  deep: "#5d7d90",
-  clay: "#8a7360",
-  line: "rgba(243, 237, 228, 0.1)",
-  raised: "#14120f",
-  fill: "rgba(255, 255, 255, 0.08)",
+const palettes: Record<"light" | "dark", ChartColors> = {
+  dark: {
+    sand: "#f3ede4",
+    dim: "#c8bdb0",
+    steel: "#8eafc4",
+    deep: "#5d7d90",
+    clay: "#8a7360",
+    line: "rgba(243, 237, 228, 0.1)",
+    raised: "#14120f",
+    fill: "rgba(255, 255, 255, 0.08)",
+  },
+  light: {
+    sand: "#1c1915",
+    dim: "#5c534b",
+    steel: "#3f5f73",
+    deep: "#2f4a5a",
+    clay: "#7a6252",
+    line: "rgba(28, 25, 21, 0.12)",
+    raised: "#fffaf3",
+    fill: "rgba(28, 25, 21, 0.08)",
+  },
 };
 
-export const chartColor = darkChartColor;
-
-function readVar(name: string, fallback: string) {
-  if (typeof document === "undefined") return fallback;
-  return (
-    getComputedStyle(document.documentElement).getPropertyValue(name).trim() ||
-    fallback
-  );
-}
-
-export function readChartColors(): ChartColors {
-  return {
-    sand: readVar("--sand", darkChartColor.sand),
-    dim: readVar("--sand-dim", darkChartColor.dim),
-    steel: readVar("--steel", darkChartColor.steel),
-    deep: readVar("--steel-deep", darkChartColor.deep),
-    clay: readVar("--clay", darkChartColor.clay),
-    line: readVar("--line", darkChartColor.line),
-    raised: readVar("--bg-raised", darkChartColor.raised),
-    fill: readVar("--fill-strong", darkChartColor.fill),
-  };
-}
+export const chartColor = palettes.dark;
 
 function canvasFont() {
   if (typeof document === "undefined") return "system-ui, sans-serif";
@@ -116,9 +107,10 @@ export function baseOptions<TType extends keyof ChartTypeRegistry>(
 
 export function useChartColors(): ChartColors {
   const { resolved } = useTheme();
-  return useMemo(() => {
-    void resolved;
-    if (typeof document === "undefined") return chartColor;
-    return readChartColors();
-  }, [resolved]);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
+  return palettes[mounted ? resolved : "dark"];
 }

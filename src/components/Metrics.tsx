@@ -42,7 +42,7 @@ function ChartLegend({
         <li key={item.label} className="flex items-center gap-2 text-[13px]">
           <span
             className="h-1.5 w-1.5 shrink-0 rounded-full"
-            style={{ background: item.color }}
+            style={{ backgroundColor: item.color }}
             aria-hidden="true"
           />
           <span className="text-sand-dim">{item.label}</span>
