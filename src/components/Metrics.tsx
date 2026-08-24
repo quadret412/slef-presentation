@@ -4,16 +4,10 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Bar, Doughnut, Line } from "react-chartjs-2";
 import { useReducedMotion } from "motion/react";
 import type { ChartOptions, Plugin } from "chart.js";
-import { metrics, profile } from "@/data/profile";
+import { metrics } from "@/data/profile";
 import { baseOptions, chartMotion, useChartColors } from "./charts";
 import { Reveal } from "./Reveal";
 import { SectionAnchor } from "./SectionAnchor";
-
-function monthsFromDuration(duration: string) {
-  const years = Number(/(\d+)\s*yr/.exec(duration)?.[1] ?? 0);
-  const months = Number(/(\d+)\s*mo/.exec(duration)?.[1] ?? 0);
-  return years * 12 + months;
-}
 
 function useEntered() {
   const ref = useRef<HTMLDivElement>(null);
@@ -65,29 +59,6 @@ export function Metrics() {
   const { ref, entered } = useEntered();
   const animate = entered && !reduce;
 
-  const roles = useMemo(
-    () =>
-      profile.experience.map((job) => ({
-        label: job.company.split(/[.\s]/)[0],
-        months: monthsFromDuration(job.duration),
-        duration: job.duration,
-      })),
-    [],
-  );
-
-  const skills = useMemo(
-    () =>
-      profile.skills.map((group, index) => ({
-        label: group.group,
-        count: group.items.length,
-        color:
-          [chartColor.steel, chartColor.sand, chartColor.deep, chartColor.clay][
-            index
-          ] ?? chartColor.dim,
-      })),
-    [chartColor],
-  );
-
   const loadOptions = useMemo<ChartOptions<"bar">>(
     () => ({
       ...baseOptions<"bar">(reduce, chartColor),
@@ -106,30 +77,6 @@ export function Metrics() {
             color: chartColor.dim,
             callback: (value) => `${value}s`,
           },
-        },
-      },
-    }),
-    [reduce, chartColor],
-  );
-
-  const roleOptions = useMemo<ChartOptions<"bar">>(
-    () => ({
-      ...baseOptions<"bar">(reduce, chartColor),
-      indexAxis: "y",
-      scales: {
-        x: {
-          beginAtZero: true,
-          grid: { color: chartColor.line },
-          border: { display: false },
-          ticks: {
-            color: chartColor.dim,
-            callback: (value) => `${value} mo`,
-          },
-        },
-        y: {
-          grid: { display: false },
-          border: { display: false },
-          ticks: { color: chartColor.dim },
         },
       },
     }),
@@ -226,9 +173,8 @@ export function Metrics() {
       </Reveal>
       <Reveal delay={0.06}>
         <p className="mt-4 max-w-[54ch] text-[17px] leading-[1.6] text-sand-dim">
-          Load, bundle, brands, components, frame budget, time in role, and the
-          stack as I list it. The component line is an illustrative path to the
-          50+ floor.
+          Load, bundle, brands, components, and frame budget. The component
+          line is an illustrative path to the 50+ floor.
         </p>
       </Reveal>
 
@@ -316,77 +262,6 @@ export function Metrics() {
                 detail: `~${100 - metrics.bundleCutPercent}%`,
               },
             ]}
-          />
-        </figure>
-
-        <figure className="min-w-0 lg:col-span-7">
-          <figcaption className="text-[17px] font-medium tracking-[-0.02em] text-sand">
-            Months in each role
-          </figcaption>
-          <p className="mt-2 max-w-[46ch] text-[14px] leading-6 text-sand-dim">
-            From the dates on the résumé. Some roles overlap, so this is time in
-            post, not an exclusive career split.
-          </p>
-          <div className="relative mt-5 h-[240px] w-full min-w-0">
-              <Bar
-                data={{
-                  labels: roles.map((role) => role.label),
-                  datasets: [
-                    {
-                      data: roles.map((role) => role.months),
-                      backgroundColor: roles.map((_, index) =>
-                        index === 0 ? chartColor.steel : chartColor.deep,
-                      ),
-                      borderRadius: 8,
-                      barPercentage: 0.56,
-                    },
-                  ],
-                }}
-                options={{
-                  ...roleOptions,
-                  animation: animate ? chartMotion(false) : { duration: 0 },
-                }}
-              />
-          </div>
-          <p className="sr-only">
-            {roles
-              .map((role) => `${role.label}: ${role.duration}`)
-              .join(". ")}
-          </p>
-        </figure>
-
-        <figure className="min-w-0 lg:col-span-5">
-          <figcaption className="text-[17px] font-medium tracking-[-0.02em] text-sand">
-            How the stack is grouped
-          </figcaption>
-          <p className="mt-2 max-w-[36ch] text-[14px] leading-6 text-sand-dim">
-            Count of skills as listed on this page. Not a usage-share claim.
-          </p>
-          <div className="relative mt-5 h-[220px] w-full min-w-0">
-              <Doughnut
-                data={{
-                  labels: skills.map((skill) => skill.label),
-                  datasets: [
-                    {
-                      data: skills.map((skill) => skill.count),
-                      backgroundColor: skills.map((skill) => skill.color),
-                      borderWidth: 0,
-                      hoverOffset: 0,
-                    },
-                  ],
-                }}
-                options={{
-                  ...doughnutOptions,
-                  animation: animate ? chartMotion(false) : { duration: 0 },
-                }}
-              />
-          </div>
-          <ChartLegend
-            items={skills.map((skill) => ({
-              label: skill.label,
-              color: skill.color,
-              detail: String(skill.count),
-            }))}
           />
         </figure>
 
