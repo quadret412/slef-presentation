@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Host_Grotesk } from "next/font/google";
+import { profile } from "@/data/profile";
+import { getSiteUrl, personJsonLd, seo, siteName } from "@/lib/site";
 import { themeBootScript } from "@/lib/theme";
 import "./globals.css";
 
@@ -9,6 +11,8 @@ const host = Host_Grotesk({
   subsets: ["latin"],
   display: "swap",
 });
+
+const siteUrl = getSiteUrl();
 
 export const viewport: Viewport = {
   themeColor: [
@@ -20,17 +24,53 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Dmitry Antonov - Senior Frontend Engineer",
-  description:
-    "Senior Frontend Engineer. Vue 3, TypeScript, design systems, real-time web apps. Remote from Punta del Este.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: seo.title,
+    template: `%s | ${profile.name}`,
+  },
+  description: seo.description,
+  applicationName: siteName,
+  authors: [{ name: profile.name, url: siteUrl }],
+  creator: profile.name,
+  publisher: profile.name,
+  keywords: seo.keywords,
+  category: "technology",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   icons: {
     icon: [{ url: "/mark.svg", type: "image/svg+xml" }],
   },
+  manifest: "/manifest.webmanifest",
   openGraph: {
-    title: "Dmitry Antonov - Senior Frontend Engineer",
-    description:
-      "Vue 3 + TypeScript frontends for real-time, multi-brand products.",
     type: "website",
+    locale: "en_US",
+    url: "/",
+    siteName,
+    title: seo.title,
+    description: seo.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: seo.title,
+    description: seo.description,
+  },
+  appleWebApp: {
+    title: profile.shortName,
+    capable: true,
+    statusBarStyle: "black-translucent",
   },
 };
 
@@ -42,6 +82,8 @@ FORM: Apple-cinematic, pinned by owner. No concept roll.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
+  const jsonLd = personJsonLd(siteUrl);
+
   return (
     <html
       lang="en"
@@ -53,6 +95,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           id="theme-boot"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: themeBootScript }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <div
           hidden
