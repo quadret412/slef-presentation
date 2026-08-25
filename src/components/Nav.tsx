@@ -3,8 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "motion/react";
 import { nav, profile } from "@/data/profile";
-import { asset } from "@/lib/site";
-import { DownloadIcon } from "./Icons";
+import { ResumeDownload } from "./ResumeDownload";
 import { Mark } from "./Mark";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { useNavPill, useSectionNav } from "./section-nav";
@@ -97,14 +96,10 @@ export function Nav() {
           </nav>
           <div className="flex shrink-0 items-center gap-2">
             <ThemeSwitcher />
-            <a
-              href={asset(profile.resumeHref)}
-              download={profile.resumeFile}
+            <ResumeDownload
               className="inline-flex shrink-0 items-center gap-2 rounded-full bg-sand px-3 py-1.5 text-[13px] font-medium text-bg transition-transform duration-100 ease-out hover:bg-sand-hover active:scale-[0.97] sm:px-3.5"
-            >
-              <DownloadIcon className="h-3.5 w-3.5" />
-              Resume
-            </a>
+              label="Resume"
+            />
           </div>
         </div>
       </header>

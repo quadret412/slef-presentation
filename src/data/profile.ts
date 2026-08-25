@@ -16,6 +16,8 @@ export const profile = {
   whatsappLabel: "+382 69 226 494",
   resumeHref: "/Dmitry-Antonov-Resume.pdf",
   resumeFile: "Dmitry-Antonov-Resume.pdf",
+  resumeUsHref: "/Dmitry-Antonov-Resume-US.pdf",
+  resumeUsFile: "Dmitry-Antonov-Resume-US.pdf",
   photo: {
     src: "/dmitry.jpg",
     alt: "Dmitry Antonov, photographed in profile against coastal cliffs",

@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { profile } from "@/data/profile";
-import { ArrowIcon, DownloadIcon } from "./Icons";
+import { ArrowIcon } from "./Icons";
+import { ResumeDownload } from "./ResumeDownload";
 import { asset } from "@/lib/site";
 import { FileMark, ReactMark, VueMark } from "./marks/TechMarks";
 
@@ -72,14 +73,10 @@ export function Hero() {
             Get in touch
             <ArrowIcon className="h-3.5 w-3.5" />
           </a>
-          <a
-            href={asset(profile.resumeHref)}
-            download={profile.resumeFile}
+          <ResumeDownload
             className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-[14px] font-medium text-sand transition-[background,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-fill active:scale-[0.97]"
-          >
-            <DownloadIcon className="h-3.5 w-3.5" />
-            Download resume
-          </a>
+            label="Download resume"
+          />
         </motion.div>
         <motion.div
           className="mt-8 flex items-center gap-4"

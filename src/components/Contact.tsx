@@ -1,6 +1,5 @@
 import { profile } from "@/data/profile";
-import { asset } from "@/lib/site";
-import { DownloadIcon } from "./Icons";
+import { ResumeDownload } from "./ResumeDownload";
 import { Reveal } from "./Reveal";
 import { SectionAnchor } from "./SectionAnchor";
 import { SocialLinks } from "./SocialLinks";
@@ -23,14 +22,10 @@ export function Contact() {
         </p>
       </Reveal>
       <Reveal delay={0.12}>
-        <a
-          href={asset(profile.resumeHref)}
-          download={profile.resumeFile}
+        <ResumeDownload
           className="mt-10 inline-flex items-center gap-2 text-[15px] text-sand-dim transition-colors duration-200 hover:text-sand"
-        >
-          <DownloadIcon className="h-3.5 w-3.5" />
-          Download PDF resume
-        </a>
+          label="Download PDF resume"
+        />
       </Reveal>
       <footer className="mt-16 flex flex-col gap-5 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
         <SocialLinks />

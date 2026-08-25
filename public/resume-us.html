@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dmitry Antonov - Resume</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        background: #111;
+        color: #111;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .toolbar {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 10px 16px;
+        color: #eee;
+        background: #111;
+        font-size: 13px;
+      }
+
+      .toolbar p {
+        margin: 0;
+      }
+
+      .toolbar button {
+        appearance: none;
+        border: 0;
+        padding: 6px 10px;
+        background: #fff;
+        color: #111;
+        font: inherit;
+        font-size: 13px;
+        cursor: pointer;
+      }
+
+      .stage {
+        padding: 16px;
+      }
+
+      .sheet {
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0 auto;
+        padding: 0.5in;
+        background: #fff;
+        color: #111;
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        font-size: 18pt;
+        font-weight: 700;
+        line-height: 1.15;
+        text-align: center;
+      }
+
+      .contact {
+        margin-top: 6px;
+        text-align: center;
+        font-size: 10.5pt;
+        line-height: 1.35;
+      }
+
+      .contact a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      h2 {
+        margin: 12pt 0 6pt;
+        padding-bottom: 2pt;
+        border-bottom: 1px solid #111;
+        font-size: 12pt;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+      }
+
+      .summary {
+        font-size: 10.5pt;
+        line-height: 1.35;
+      }
+
+      .job {
+        margin-top: 8pt;
+      }
+
+      .job-title {
+        font-size: 11pt;
+        font-weight: 700;
+      }
+
+      .job-meta {
+        font-size: 10.5pt;
+      }
+
+      ul {
+        margin: 4pt 0 0 18px;
+      }
+
+      li {
+        margin: 0 0 3pt;
+        font-size: 10.5pt;
+        line-height: 1.3;
+      }
+
+      .skills {
+        font-size: 10.5pt;
+        line-height: 1.4;
+      }
+
+      .skills p + p {
+        margin-top: 3pt;
+      }
+
+      @page {
+        size: letter;
+        margin: 0;
+      }
+
+      @page {
+        @top-left {
+          content: none;
+        }
+        @top-center {
+          content: none;
+        }
+        @top-right {
+          content: none;
+        }
+        @bottom-left {
+          content: none;
+        }
+        @bottom-center {
+          content: none;
+        }
+        @bottom-right {
+          content: none;
+        }
+      }
+
+      @media print {
+        html,
+        body {
+          background: #fff;
+        }
+
+        .toolbar {
+          display: none !important;
+        }
+
+        .stage {
+          padding: 0;
+        }
+
+        .sheet {
+          width: auto;
+          min-height: 0;
+          margin: 0;
+          padding: 0.5in;
+          box-shadow: none;
+        }
+
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toolbar">
+      <p>US resume · Letter 8.5×11 · Save as PDF · turn off Headers and footers</p>
+      <button type="button" onclick="window.print()">Print / Save PDF</button>
+    </div>
+
+    <div class="stage">
+      <article class="sheet">
+        <header>
+          <h1>Dmitry Antonov</h1>
+          <p class="contact">
+            Senior Frontend Engineer<br />
+            Punta del Este, Uruguay | Remote<br />
+            +382 69 226 494 | quadret412@gmail.com<br />
+            <a href="https://www.linkedin.com/in/dmitry-antonov-web-developer"
+              >linkedin.com/in/dmitry-antonov-web-developer</a
+            >
+            |
+            <a href="https://github.com/quadret412">github.com/quadret412</a>
+            |
+            <a href="https://t.me/quadret412">t.me/quadret412</a>
+          </p>
+        </header>
+
+        <h2>Summary</h2>
+        <p class="summary">
+          Senior Frontend Engineer with 6+ years in Vue and TypeScript. I own
+          real-time, multi-brand frontends from architecture and design system
+          through ship and metrics. Recent work: one Vue 3 codebase serving 3
+          live brands, JS bundle cut about 30%, Lighthouse load ~2.0s to ~1.5s,
+          gameplay UI holding 60/30 FPS. Open to Senior Frontend and UI Platform
+          roles. Remote.
+        </p>
+
+        <h2>Experience</h2>
+
+        <section class="job">
+          <p class="job-title">Senior Frontend Developer</p>
+          <p class="job-meta">Looptain.Limited | Remote | May 2024 - Present</p>
+          <ul>
+            <li>
+              Built and maintain core real-time surfaces (crate opening,
+              roulette, case battles, miner) with low-latency WebSocket game
+              state and wallet sync for hundreds of concurrent players.
+            </li>
+            <li>
+              Own the V2 UI platform: 50+ reusable components, Storybook, Figma
+              design tokens; one codebase serving 3 production brands.
+            </li>
+            <li>
+              Cut JS bundle ~30% (code splitting, dependencies, build config)
+              and Lighthouse load ~2.0s to ~1.5s (lazy routes, asset delivery,
+              render strategy).
+            </li>
+            <li>
+              Engineered animation pipelines that hold 60/30 FPS on crate and
+              gameplay UI (render and DOM budgets, mobile and desktop).
+            </li>
+            <li>
+              Designed wallet and transaction UI synced with backend over REST
+              and WebSockets.
+            </li>
+            <li>
+              Owned frontend PostHog: SDK, identify, feature flags, experiments,
+              session replay, surveys; offer-modal targeting with backend and
+              product.
+            </li>
+            <li>
+              Code review and architecture guidance in a 6-engineer team;
+              Vitest/Jest and Playwright on gameplay and money paths.
+            </li>
+          </ul>
+        </section>
+
+        <section class="job">
+          <p class="job-title">Middle+ Frontend Developer</p>
+          <p class="job-meta">Insider | Turkiye, Remote | Sep 2021 - Jul 2022</p>
+          <ul>
+            <li>
+              Shipped complex Vue.js and vanilla JavaScript UI integrated with
+              PHP and Go APIs for a customer-engagement platform used by global
+              enterprise clients.
+            </li>
+            <li>
+              Designed and published internal NPM packages reused across
+              multiple frontend projects.
+            </li>
+            <li>
+              Contributed to frontend architecture and component standards with
+              backend and product.
+            </li>
+          </ul>
+        </section>
+
+        <section class="job">
+          <p class="job-title">Middle Frontend Developer</p>
+          <p class="job-meta">Unicode | Moscow, Remote | Dec 2020 - Dec 2021</p>
+          <ul>
+            <li>
+              Built and maintained the Vue.js editor and site-rendering UI for
+              a visual website constructor: layout, blocks, preview, and
+              publish.
+            </li>
+            <li>
+              Integrated frontend with Python APIs for save/load, assets, and
+              publish.
+            </li>
+            <li>
+              Improved desktop and mobile performance of the constructor and the
+              generated sites.
+            </li>
+            <li>
+              Automated tests with Jest on critical editor and publish paths.
+            </li>
+            <li>
+              Mentored junior developers and reviewed PRs with design and
+              backend.
+            </li>
+          </ul>
+        </section>
+
+        <section class="job">
+          <p class="job-title">Junior+ / Pre-Middle Frontend Developer</p>
+          <p class="job-meta">
+            SEDEMO Trading and Investments | Poland | Dec 2019 - Jan 2021
+          </p>
+          <ul>
+            <li>
+              Built responsive Vue.js and Nuxt.js UI for crate/case flows and
+              related game surfaces.
+            </li>
+            <li>
+              Integrated frontend with PHP APIs for catalog, open/result, and
+              user state.
+            </li>
+            <li>
+              Improved performance and layout across desktop and mobile in
+              production.
+            </li>
+          </ul>
+        </section>
+
+        <h2>Skills</h2>
+        <div class="skills">
+          <p>
+            Vue 3, Vue.js, Nuxt.js, TypeScript, JavaScript, Pinia, TanStack
+            Query, i18n, PWA
+          </p>
+          <p>
+            Design systems, Storybook, Figma tokens, Tailwind CSS, SCSS,
+            component architecture
+          </p>
+          <p>WebSockets, REST, PostHog, feature flags, wallet / payments UI</p>
+          <p>Vitest, Jest, Playwright, Vite, Webpack, GSAP</p>
+          <p>English (professional), Russian (native)</p>
+        </div>
+      </article>
+    </div>
+  </body>
+</html>
