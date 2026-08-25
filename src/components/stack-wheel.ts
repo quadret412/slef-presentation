@@ -11,6 +11,7 @@ export const STACK_WHEEL_MIN_ZONE = 0.03;
 export const STACK_WHEEL_MAX_ZONE = 0.89;
 export const STACK_UPGRADE_RTP = 0.9;
 export const STACK_TILE_MAX = 5;
+export const STACK_MOBILE_HOLD = 0.4;
 
 type Span = { col: number; row: number };
 

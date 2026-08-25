@@ -11,7 +11,9 @@ import {
 import { useDroppable } from "@dnd-kit/core";
 import { useReducedMotion } from "motion/react";
 import type { techCatalog } from "./marks/TechMarks";
+import { useFineDesk } from "@/lib/fine-desk";
 import {
+  STACK_MOBILE_HOLD,
   STACK_WHEEL_MIN_ZONE,
   STACK_WHEEL_SEGMENTS,
   stackUpgradeBase,
@@ -76,6 +78,7 @@ export function StackUpgrader({
   onCommit: (next: Span) => void;
 }) {
   const reduce = useReducedMotion();
+  const boarded = useFineDesk();
   const reactId = useId();
   const clipId = `stack-zone-${reactId.replace(/:/g, "")}`;
   const [spinning, setSpinning] = useState(false);
@@ -107,12 +110,13 @@ export function StackUpgrader({
   zoneRef.current = zone;
 
   const base = stackUpgradeBase(span);
-  const suggested = base.chance;
+  const suggested = boarded ? base.chance : STACK_MOBILE_HOLD;
   const chance = zone.width;
-  const target =
-    chance > 0
+  const target = boarded
+    ? chance > 0
       ? stackUpgradeForChance(span, chance)
-      : base.to;
+      : base.to
+    : null;
   const zonePath = useMemo(
     () => stackWheelArcPath(zone.start, zone.width),
     [zone.start, zone.width],
@@ -124,7 +128,8 @@ export function StackUpgrader({
   const firstActive = active.size ? Math.min(...active) : 0;
   const startHandle = stackWheelHandlePoint(zone.start);
   const endHandle = stackWheelHandlePoint(zone.start + zone.width);
-  const canPlay = Boolean(target) && !spinning && !locked;
+  const canPlay =
+    !spinning && !locked && chance > 0 && (boarded ? Boolean(target) : true);
   const canDrag = canPlay;
 
   const paintNeedle = (next: number) => {
@@ -398,13 +403,14 @@ export function StackUpgrader({
     };
     setDragging(true);
     setBuilding(false);
-    window.addEventListener("pointermove", listeners.move);
+    window.addEventListener("pointermove", listeners.move, { passive: false });
     window.addEventListener("pointerup", listeners.up);
     window.addEventListener("pointercancel", listeners.up);
   };
 
   const roll = () => {
-    if (!target || spinning || locked || chance <= 0) return;
+    if (spinning || locked || chance <= 0) return;
+    if (boarded && !target) return;
     const hit = Math.random() < chance;
     const land = hit
       ? zone.start + Math.random() * zone.width
@@ -445,16 +451,20 @@ export function StackUpgrader({
   };
 
   const finish = (hit: boolean) => {
-    if (hit && !target) return;
-    const next = hit && target ? target : shrink(span);
-    onCommit(next);
+    if (boarded) {
+      if (hit && !target) return;
+      const next = hit && target ? target : shrink(span);
+      onCommit(next);
+      setNote(
+        hit
+          ? `Held. ${item.name} is ${next.col}×${next.row}.`
+          : `Miss. ${item.name} is ${next.col}×${next.row}.`,
+      );
+    } else {
+      setNote(hit ? `Held. ${item.name}.` : `Miss. ${item.name}.`);
+    }
     setResult(hit ? "held" : "miss");
     setSpinning(false);
-    setNote(
-      hit
-        ? `Held. ${item.name} is ${next.col}×${next.row}.`
-        : `Miss. ${item.name} is ${next.col}×${next.row}.`,
-    );
   };
 
   const wheelClass = [
@@ -474,17 +484,29 @@ export function StackUpgrader({
         <div className="min-w-0 flex-1">
           <p className="text-[13px] text-steel">Chance dial</p>
           <p className="mt-1 text-[14px] leading-6 text-sand-dim">
-            Click a mark or drag it onto the target. A thinner hold aims bigger.
+            <span className="fine-desk:hidden">
+              Tap a mark to load it. Drag the hold to aim. A thinner hold is
+              harder to keep.
+            </span>
+            <span className="hidden fine-desk:inline">
+              Click a mark or drag it onto the target. A thinner hold aims
+              bigger.
+            </span>
           </p>
         </div>
         <p className="shrink-0 tabular text-[13px] text-sand-dim">
-          {target
-            ? `${Math.round(chance * 100)}% to ${target.col}×${target.row}`
-            : "Already 5×5"}
+          <span className="fine-desk:hidden">
+            {Math.round(chance * 100)}% to hold
+          </span>
+          <span className="hidden fine-desk:inline">
+            {target
+              ? `${Math.round(chance * 100)}% to ${target.col}×${target.row}`
+              : "Already 5×5"}
+          </span>
         </p>
       </div>
 
-      <div className="mt-5 grid items-center gap-6 sm:grid-cols-[1fr_minmax(13rem,18rem)_1fr]">
+      <div className="mt-5 grid items-center gap-6 fine-desk:grid-cols-[1fr_minmax(13rem,18rem)_1fr]">
         <MarkSide
           item={item}
           caption={item.name}
@@ -598,13 +620,23 @@ export function StackUpgrader({
           onClick={roll}
           className="rounded-full bg-sand px-4 py-2 text-[13px] font-medium text-bg transition-[background,transform] duration-100 ease-out hover:bg-sand-hover active:scale-[0.97] disabled:opacity-50"
         >
-          {spinning ? "Spinning…" : "Upgrade"}
+          {spinning ? (
+            "Spinning…"
+          ) : (
+            <>
+              <span className="fine-desk:hidden">Spin</span>
+              <span className="hidden fine-desk:inline">Upgrade</span>
+            </>
+          )}
         </button>
         {note ? (
           <p className="text-[13px] text-sand-dim">{note}</p>
         ) : (
           <p className="text-[13px] text-sand-dim">
-            Drag a mark onto the target slot. Tiles can grow up to 5×5.
+            <span className="fine-desk:hidden">Set the hold, then spin.</span>
+            <span className="hidden fine-desk:inline">
+              Drag a mark onto the target slot. Tiles can grow up to 5×5.
+            </span>
           </p>
         )}
       </div>
@@ -630,7 +662,7 @@ function ZoneHandle({
       transform={`translate(${point.x} ${point.y}) rotate(${point.rotation})`}
       onPointerDown={disabled ? undefined : onPointerDown}
     >
-      <circle className="stack-wheel__handle-hit" r="7.5" />
+      <circle className="stack-wheel__handle-hit" r="11" />
       <rect
         className="stack-wheel__handle-bar"
         x="-0.7"
@@ -659,7 +691,9 @@ function MarkSide({
       </span>
       <span className="text-[13px] text-sand-dim">
         {caption}
-        <span className="mt-0.5 block tabular text-sand">{size}</span>
+        <span className="mt-0.5 hidden tabular text-sand fine-desk:block">
+          {size}
+        </span>
       </span>
     </div>
   );
@@ -681,7 +715,7 @@ function TargetDrop({
   return (
     <div
       ref={setNodeRef}
-      className={`flex min-h-[5.5rem] items-center justify-center gap-3 rounded-[18px] border px-3 py-3 transition-[border-color,background] duration-150 ${
+      className={`hidden min-h-[5.5rem] items-center justify-center gap-3 rounded-[18px] border px-3 py-3 transition-[border-color,background] duration-150 fine-desk:flex ${
         isOver
           ? "border-[#4ecf6a]/55 bg-[#4ecf6a]/12"
           : receiving

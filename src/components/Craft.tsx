@@ -20,7 +20,7 @@ export function Craft() {
       <Reveal delay={0.06}>
         <p className="mt-4 max-w-[54ch] text-[17px] leading-[1.6] text-sand-dim">
           Tokens, a wallet sheet, a live feed, a crate reel, a stack you can
-          drag, and an upgrader on those marks - the kind of UI I ship,
+          try, and an upgrader on those marks - the kind of UI I ship,
           compressed into this page.
         </p>
       </Reveal>
@@ -56,7 +56,12 @@ export function Craft() {
         <Reveal>
           <h3 className="text-[15px] font-medium text-steel">Stack</h3>
           <p className="mt-2 mb-4 text-[14px] leading-6 text-sand-dim">
-            Click a mark or drag it onto the target. Tiles can grow to 5×5.
+            <span className="fine-desk:hidden">
+              Tap a mark to load the wheel, then spin.
+            </span>
+            <span className="hidden fine-desk:inline">
+              Click a mark or drag it onto the target. Tiles can grow to 5×5.
+            </span>
           </p>
         </Reveal>
         <TechDock />

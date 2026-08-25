@@ -27,6 +27,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { techCatalog } from "./marks/TechMarks";
 import { STACK_UPGRADER_DROP_ID, StackUpgrader } from "./StackUpgrader";
 import { STACK_TILE_MAX } from "./stack-wheel";
+import { FINE_DESK_QUERY } from "@/lib/fine-desk";
 
 const easeOut = [0.23, 1, 0.32, 1] as const;
 const COLS = 6;
@@ -65,6 +66,11 @@ class TilePointerSensor extends PointerSensor {
       handler: ({ nativeEvent }: { nativeEvent: globalThis.PointerEvent }) => {
         if (nativeEvent.button !== 0) return false;
         if (
+          !window.matchMedia(FINE_DESK_QUERY).matches
+        ) {
+          return false;
+        }
+        if (
           nativeEvent.target instanceof HTMLElement &&
           nativeEvent.target.closest("[data-resize]")
         ) {
@@ -88,6 +94,45 @@ function playTapMotion(node: HTMLElement) {
   window.clearTimeout(Number(node.dataset.tapTimer ?? 0));
   node.dataset.tapTimer = String(
     window.setTimeout(() => node.classList.remove("is-tapped"), 380),
+  );
+}
+
+function TapTile({
+  id,
+  selected,
+  onSelect,
+}: {
+  id: ItemId;
+  selected: boolean;
+  onSelect: () => void;
+}) {
+  const item = itemById(id);
+  if (!item) return null;
+
+  return (
+    <button
+      type="button"
+      onClick={onSelect}
+      onPointerUp={(event) => {
+        if (event.pointerType === "mouse") return;
+        playTapMotion(event.currentTarget);
+      }}
+      className={`mark-tile mark-tile--${item.motion} flex min-h-12 items-center gap-3 rounded-[16px] border px-3 py-2.5 text-left ${
+        selected ? "border-sand/25 bg-fill-strong" : "border-line bg-fill"
+      }`}
+      aria-pressed={selected}
+    >
+      <span className="mark-tile__icon pointer-events-none grid h-8 w-8 shrink-0 place-items-center">
+        {item.render("h-8 w-8")}
+      </span>
+      <span
+        className={`min-w-0 text-[14px] leading-5 ${
+          selected ? "text-sand" : "text-sand-dim"
+        }`}
+      >
+        {item.name}
+      </span>
+    </button>
   );
 }
 
@@ -388,14 +433,23 @@ export function TechDock() {
           setSpans((prev) => ({ ...prev, [active]: next }))
         }
       />
+        <div className="grid grid-cols-2 gap-2 rounded-[20px] border border-line bg-panel p-3 shadow-[var(--panel-shadow)] fine-desk:hidden">
+          {order.map((id) => (
+            <TapTile
+              key={id}
+              id={id}
+              selected={id === active}
+              onSelect={() => setActive(id)}
+            />
+          ))}
+        </div>
         <SortableContext items={order} strategy={rectSortingStrategy}>
           <div
             ref={boardRef}
-            className={`rounded-[20px] border border-line bg-panel p-3 shadow-[var(--panel-shadow)] ${
+            className={`hidden rounded-[20px] border border-line bg-panel p-3 shadow-[var(--panel-shadow)] fine-desk:grid ${
               dragging || resizing ? "select-none" : ""
             }`}
             style={{
-              display: "grid",
               gridTemplateColumns: `repeat(${COLS}, minmax(0, 1fr))`,
               gridAutoRows: `${ROW}px`,
               gridAutoFlow: "dense",
