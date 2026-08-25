@@ -4,6 +4,14 @@ function trimSlash(url: string) {
   return url.replace(/\/$/, "");
 }
 
+export const basePath =
+  process.env.NEXT_PUBLIC_BASE_PATH || process.env.PAGES_BASE_PATH || "";
+
+export function asset(path: string) {
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  return `${basePath}${normalized}`;
+}
+
 export function getSiteUrl() {
   const explicit = process.env.NEXT_PUBLIC_SITE_URL;
   if (explicit) return trimSlash(explicit);

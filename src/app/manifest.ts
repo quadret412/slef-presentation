@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { profile } from "@/data/profile";
-import { seo, siteName } from "@/lib/site";
+import { asset, seo, siteName } from "@/lib/site";
 
 export const dynamic = "force-static";
 
@@ -18,7 +18,7 @@ export default function manifest(): MetadataRoute.Manifest {
     lang: "en",
     icons: [
       {
-        src: "/mark.svg",
+        src: asset("/mark.svg"),
         type: "image/svg+xml",
         sizes: "any",
         purpose: "any",

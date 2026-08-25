@@ -1,11 +1,12 @@
 import Image from "next/image";
 import { profile } from "@/data/profile";
+import { asset } from "@/lib/site";
 
 export function Atmosphere() {
   return (
     <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden>
       <Image
-        src={profile.photo.src}
+        src={asset(profile.photo.src)}
         alt=""
         fill
         priority

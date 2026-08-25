@@ -1,4 +1,5 @@
 import type { SVGProps } from "react";
+import { asset } from "@/lib/site";
 
 type MarkProps = SVGProps<SVGSVGElement>;
 
@@ -75,7 +76,7 @@ export function FileMark({
 }) {
   return (
     <img
-      src={src}
+      src={asset(src)}
       alt=""
       className={className}
       width={32}

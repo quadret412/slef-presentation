@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { profile } from "@/data/profile";
 import { ArrowIcon, DownloadIcon } from "./Icons";
+import { asset } from "@/lib/site";
 import { FileMark, ReactMark, VueMark } from "./marks/TechMarks";
 
 const easeOut = [0.23, 1, 0.32, 1] as const;
@@ -23,7 +24,7 @@ export function Hero() {
         transition={{ duration: 1.05, ease: easeOut }}
       >
         <Image
-          src={profile.photo.src}
+          src={asset(profile.photo.src)}
           alt={profile.photo.alt}
           fill
           priority
@@ -72,7 +73,7 @@ export function Hero() {
             <ArrowIcon className="h-3.5 w-3.5" />
           </a>
           <a
-            href={profile.resumeHref}
+            href={asset(profile.resumeHref)}
             download={profile.resumeFile}
             className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-[14px] font-medium text-sand transition-[background,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-fill active:scale-[0.97]"
           >

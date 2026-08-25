@@ -1,4 +1,5 @@
 import { profile } from "@/data/profile";
+import { asset } from "@/lib/site";
 import { DownloadIcon } from "./Icons";
 import { Reveal } from "./Reveal";
 import { SectionAnchor } from "./SectionAnchor";
@@ -23,7 +24,7 @@ export function Contact() {
       </Reveal>
       <Reveal delay={0.12}>
         <a
-          href={profile.resumeHref}
+          href={asset(profile.resumeHref)}
           download={profile.resumeFile}
           className="mt-10 inline-flex items-center gap-2 text-[15px] text-sand-dim transition-colors duration-200 hover:text-sand"
         >

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "motion/react";
 import { nav, profile } from "@/data/profile";
+import { asset } from "@/lib/site";
 import { DownloadIcon } from "./Icons";
 import { Mark } from "./Mark";
 import { ThemeSwitcher } from "./ThemeSwitcher";
@@ -97,7 +98,7 @@ export function Nav() {
           <div className="flex shrink-0 items-center gap-2">
             <ThemeSwitcher />
             <a
-              href={profile.resumeHref}
+              href={asset(profile.resumeHref)}
               download={profile.resumeFile}
               className="inline-flex shrink-0 items-center gap-2 rounded-full bg-sand px-3 py-1.5 text-[13px] font-medium text-bg transition-transform duration-100 ease-out hover:bg-sand-hover active:scale-[0.97] sm:px-3.5"
             >

@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Host_Grotesk } from "next/font/google";
 import { profile } from "@/data/profile";
-import { getSiteUrl, personJsonLd, seo, siteName } from "@/lib/site";
+import { asset, getSiteUrl, personJsonLd, seo, siteName } from "@/lib/site";
 import { themeBootScript } from "@/lib/theme";
 import "./globals.css";
 
@@ -51,9 +51,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [{ url: "/mark.svg", type: "image/svg+xml" }],
+    icon: [{ url: asset("/mark.svg"), type: "image/svg+xml" }],
   },
-  manifest: "/manifest.webmanifest",
+  manifest: asset("/manifest.webmanifest"),
   openGraph: {
     type: "website",
     locale: "en_US",
