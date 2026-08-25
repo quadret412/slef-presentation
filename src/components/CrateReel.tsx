@@ -187,7 +187,7 @@ export function CrateReel() {
     const button = buttonRef.current;
     if (!button) return;
     button.disabled = busy;
-    button.textContent = busy ? "Rolling…" : "Open crate";
+    button.textContent = busy ? "Rolling…" : "Start roll";
   };
 
   const roll = () => {
@@ -247,7 +247,7 @@ export function CrateReel() {
         onClick={roll}
         className="w-full rounded-full bg-sand py-2.5 text-[14px] font-medium text-bg transition-[background,transform] duration-100 ease-out hover:bg-sand-hover active:scale-[0.97] disabled:opacity-60"
       >
-        Open crate
+        Start roll
       </button>
 
       <ReelTrack
@@ -272,7 +272,7 @@ export function CrateReel() {
           </motion.p>
         ) : (
           <p className="text-[14px] text-sand-dim">
-            Reel the stack. The land is the reveal.
+            Start the roll. The land is the reveal.
           </p>
         )}
       </div>

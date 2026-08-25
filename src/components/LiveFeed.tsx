@@ -8,12 +8,14 @@ const names = ["nova", "kade", "mira", "rex", "lumen", "ash", "orio", "nile"];
 const liveEase = [0.22, 1, 0.36, 1] as const;
 const RAIL = 8;
 
+const verbs = ["sync", "join", "flag", "tick", "ship"];
+
 type Drop = {
   id: number;
   user: string;
   tech: (typeof techCatalog)[number];
-  mult: string;
-  payout: string;
+  verb: string;
+  latency: string;
   hot: boolean;
 };
 
@@ -22,8 +24,8 @@ function makeDrop(id: number): Drop {
     id,
     user: names[id % names.length],
     tech: techCatalog[id % techCatalog.length],
-    mult: `${(1.4 + (id % 9) * 0.8).toFixed(2)}x`,
-    payout: `$${(12 + (id % 7) * 18).toFixed(0)}`,
+    verb: verbs[id % verbs.length],
+    latency: `${16 + (id % 9) * 4}ms`,
     hot: id % 5 === 0,
   };
 }
@@ -81,10 +83,10 @@ export function LiveFeed() {
                     {item.tech.render("h-12 w-12")}
                   </div>
                   <div className="live-drop-card__body">
-                    <span className="live-drop-card__mult">{item.mult}</span>
+                    <span className="live-drop-card__mult">{item.verb}</span>
                     <p className="live-drop-card__user">{item.user}</p>
                   </div>
-                  <p className="live-drop-card__payout">{item.payout}</p>
+                  <p className="live-drop-card__payout">{item.latency}</p>
                 </div>
               </article>
             </motion.li>

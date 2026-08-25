@@ -19,9 +19,9 @@ export function Craft() {
       </Reveal>
       <Reveal delay={0.06}>
         <p className="mt-4 max-w-[54ch] text-[17px] leading-[1.6] text-sand-dim">
-          Tokens, a wallet sheet, a live feed, a crate reel, a stack you can
-          try, and an upgrader on those marks - the kind of UI I ship,
-          compressed into this page.
+          Tokens, a wallet sheet, a live feed, a roll, a stack you can try,
+          and an upgrader on those marks - the kind of UI I ship, compressed
+          into this page.
         </p>
       </Reveal>
 
@@ -36,7 +36,7 @@ export function Craft() {
         <Reveal delay={0.06}>
           <h3 className="text-[15px] font-medium text-steel">Realtime desk</h3>
           <p className="mt-2 mb-4 text-[14px] leading-6 text-sand-dim">
-            Wallet, live count, crate reveal over a synthetic socket.
+            Wallet, live count, and a roll over a synthetic socket.
           </p>
           <LiveDesk />
         </Reveal>
@@ -44,9 +44,9 @@ export function Craft() {
 
       <div className="mt-8">
         <Reveal>
-          <h3 className="text-[15px] font-medium text-steel">Live drop</h3>
+          <h3 className="text-[15px] font-medium text-steel">Live feed</h3>
           <p className="mt-2 mb-4 text-[14px] leading-6 text-sand-dim">
-            Newest wins land first. The rail carries them off.
+            Newest events land first. The rail carries them off.
           </p>
         </Reveal>
         <LiveFeed />

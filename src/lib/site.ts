@@ -45,7 +45,6 @@ export const seo = {
     "TypeScript",
     "design systems",
     "real-time web apps",
-    "iGaming",
     "UI platform",
     "remote frontend",
     "Punta del Este",
@@ -84,7 +83,6 @@ export function personJsonLd(siteUrl: string) {
           "TypeScript",
           "Design systems",
           "Real-time web applications",
-          "iGaming",
           "WebSockets",
         ],
         worksFor: {

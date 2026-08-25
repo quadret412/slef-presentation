@@ -436,7 +436,7 @@ export function Metrics() {
               />
             </div>
             <div className="min-w-0">
-              <p className="text-[13px] text-steel">One crate pass</p>
+              <p className="text-[13px] text-steel">One live pass</p>
               <p className="mt-1 text-[13px] leading-5 text-sand-dim">
                 Same UI over time. Jagged is the old pass. Flat is the held
                 budget.
