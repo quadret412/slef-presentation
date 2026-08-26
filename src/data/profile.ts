@@ -28,6 +28,7 @@ export const profile = {
   about: [
     "I ship Vue and TypeScript products end to end: spec, architecture, UI, tests, then the numbers. Most recently that means one codebase for three live brands, a token-driven design system, and real-time gameplay plus wallet sync over WebSockets.",
     "The work I care about is usually invisible in a GitHub sample. Animation pipelines that hold 60/30 FPS. A JavaScript bundle cut by about 30%. Lighthouse load from ~2.0s to ~1.5s. PostHog owned on the frontend - flags, experiments, offer timing - not bolted on after launch.",
+    "I use AI as leverage, not as the author. It handles research, scaffolding, refactors, and first drafts. I keep architecture, taste, and review. I do not ship generated slop. If it goes out, I can defend every line.",
     "I work with product, design, backend, QA, and data in a six-engineer team. Native Russian. English for speech, writing, and technical docs. Remote from Punta del Este.",
   ],
   experience: [
