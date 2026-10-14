@@ -1,0 +1,840 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dmitry Antonov - Senior Frontend Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0b0a08;
+        --paper: #f3eee6;
+        --ink: #1c1915;
+        --muted: #5c534b;
+        --steel: #3f5f73;
+        --line: rgba(28, 25, 21, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Host Grotesk", system-ui, sans-serif;
+      }
+
+      .toolbar {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.85rem 1.25rem;
+        color: #f3ede4;
+        background: rgba(11, 10, 8, 0.88);
+        backdrop-filter: blur(16px);
+      }
+
+      .toolbar p {
+        margin: 0;
+        font-size: 13px;
+        color: #c8bdb0;
+      }
+
+      .toolbar button {
+        appearance: none;
+        border: 0;
+        border-radius: 999px;
+        padding: 0.55rem 1rem;
+        background: #f3ede4;
+        color: #0b0a08;
+        font: inherit;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      .stage {
+        padding: 2rem 1rem 4rem;
+      }
+
+      .sheet {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0 auto;
+        padding: 14mm 15mm 16mm;
+        background: var(--paper);
+        color: var(--ink);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      ul {
+        margin: 0;
+      }
+
+      .mast-top {
+        display: flex;
+        align-items: center;
+        gap: 0.95rem;
+      }
+
+      .portrait {
+        flex: none;
+        width: 64px;
+        height: 80px;
+        overflow: hidden;
+        border-radius: 12px;
+        background: #14120f;
+      }
+
+      .identity {
+        display: flex;
+        min-height: 80px;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .portrait img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 38% 20%;
+      }
+
+      h1 {
+        font-size: 32px;
+        font-weight: 600;
+        letter-spacing: -0.035em;
+        line-height: 0.96;
+      }
+
+      .title {
+        margin-top: 0.45rem;
+        color: var(--steel);
+        font-size: 13px;
+        font-weight: 500;
+      }
+
+      .offer {
+        max-width: 62ch;
+        margin-top: 0.7rem;
+        color: var(--muted);
+        font-size: 12.5px;
+        line-height: 1.45;
+      }
+
+      .contacts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.2rem 0.85rem;
+        margin-top: 0.85rem;
+        color: var(--ink);
+        font-size: 11.5px;
+      }
+
+      .contacts span {
+        color: inherit;
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0.65rem;
+        margin-top: 1rem;
+        padding: 0.7rem 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .metrics div {
+        min-width: 0;
+      }
+
+      .metrics strong {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+
+      .metrics span {
+        display: block;
+        margin-top: 0.15rem;
+        color: var(--muted);
+        font-size: 10.5px;
+        line-height: 1.3;
+      }
+
+      h2 {
+        margin: 1.05rem 0 0.45rem;
+        color: var(--steel);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .about {
+        max-width: 78ch;
+        color: var(--ink);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .job,
+      .project {
+        break-inside: avoid;
+        padding: 0.55rem 0 0.65rem;
+        border-top: 1px solid var(--line);
+      }
+
+      .job:first-of-type,
+      .projects .project:first-child {
+        border-top: 0;
+        padding-top: 0;
+      }
+
+      .job-head,
+      .project {
+        display: grid;
+        grid-template-columns: 132px 1fr;
+        gap: 0.85rem;
+      }
+
+      .when {
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.4;
+        font-variant-numeric: tabular-nums;
+      }
+
+      h3 {
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+
+      .company,
+      .context {
+        color: var(--steel);
+        font-size: 12px;
+      }
+
+      .summary,
+      .project p {
+        margin-top: 0.28rem;
+        color: var(--muted);
+        font-size: 11.75px;
+        line-height: 1.42;
+      }
+
+      .job ul {
+        margin: 0.35rem 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .job li {
+        position: relative;
+        padding-left: 0.7rem;
+        color: var(--ink);
+        font-size: 11.75px;
+        line-height: 1.4;
+      }
+
+      .job li + li {
+        margin-top: 0.18rem;
+      }
+
+      .job li::before {
+        content: "";
+        position: absolute;
+        top: 0.62em;
+        left: 0;
+        width: 0.35rem;
+        border-top: 1.5px solid var(--steel);
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .tech {
+        margin-top: 0.35rem;
+        color: var(--muted);
+        font-size: 10.75px;
+      }
+
+      .skills {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.45rem 1.25rem;
+      }
+
+      .skills h3 {
+        font-size: 12px;
+      }
+
+      .skills p {
+        margin-top: 0.15rem;
+        color: var(--muted);
+        font-size: 11.5px;
+        line-height: 1.4;
+      }
+
+      .footnote {
+        margin-top: 0.9rem;
+        color: var(--muted);
+        font-size: 10.5px;
+      }
+
+      @media screen and (max-width: 860px) {
+        .sheet {
+          width: 100%;
+          min-height: 0;
+          padding: 1.25rem;
+        }
+
+        .portrait {
+          width: 56px;
+          height: 70px;
+        }
+
+        .identity {
+          min-height: 70px;
+        }
+
+        .metrics,
+        .job-head,
+        .project,
+        .skills {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      @page {
+        @top-left {
+          content: none;
+        }
+        @top-center {
+          content: none;
+        }
+        @top-right {
+          content: none;
+        }
+        @bottom-left {
+          content: none;
+        }
+        @bottom-center {
+          content: none;
+        }
+        @bottom-right {
+          content: none;
+        }
+      }
+
+      @media print {
+        html,
+        body {
+          background: white !important;
+          color: var(--ink);
+        }
+
+        .toolbar {
+          display: none !important;
+        }
+
+        .stage {
+          display: block;
+          padding: 0;
+        }
+
+        .sheet {
+          width: auto;
+          min-height: 0;
+          margin: 0;
+          padding: 12mm 13mm;
+          background: white;
+          box-shadow: none;
+        }
+
+        .metrics {
+          display: grid;
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+
+        .job-head,
+        .project {
+          display: grid;
+          grid-template-columns: 132px 1fr;
+        }
+
+        .skills {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+
+        .portrait img,
+        .job li::before {
+          print-color-adjust: exact;
+          -webkit-print-color-adjust: exact;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toolbar">
+      <p>
+        Printable résumé · A4 · Montenegro · Save as PDF · turn off Headers and footers
+      </p>
+      <button type="button" onclick="window.print()">Print / Save PDF</button>
+    </div>
+
+    <div class="stage">
+      <article class="sheet">
+        <header class="mast">
+          <div class="mast-top">
+            <div class="portrait">
+              <img
+                src="dmitry.jpg"
+                alt="Dmitry Antonov, photographed in profile against coastal cliffs"
+              />
+            </div>
+            <div class="identity">
+              <h1>Dmitry Antonov</h1>
+              <p class="title">
+                Senior Frontend Engineer · Vue.js · TypeScript · Design Systems ·
+                Real-Time Web Apps · iGaming
+              </p>
+            </div>
+          </div>
+          <p class="offer">
+            I own Vue 3 + TypeScript frontends for real-time, multi-brand
+            products - architecture, design system, and the metrics after ship.
+            Open to Senior Frontend and UI Platform roles. Remote from
+            Montenegro.
+          </p>
+          <p class="contacts">
+            <span>quadret412@gmail.com</span>
+            <span>Telegram @quadret412</span>
+            <span>WhatsApp +382 69 226 494</span>
+          </p>
+        </header>
+
+        <section class="metrics" aria-label="Highlights">
+          <div>
+            <strong>6+ years</strong>
+            <span>Vue / TypeScript</span>
+          </div>
+          <div>
+            <strong>3 brands</strong>
+            <span>one Vue 3 codebase</span>
+          </div>
+          <div>
+            <strong>−30%</strong>
+            <span>JS bundle</span>
+          </div>
+          <div>
+            <strong>2.0s → 1.5s</strong>
+            <span>Lighthouse load</span>
+          </div>
+          <div>
+            <strong>60 / 30 FPS</strong>
+            <span>desktop / mobile gameplay UI</span>
+          </div>
+        </section>
+
+        <h2>About</h2>
+        <p class="about">
+          I ship Vue, React, and TypeScript products end to end: spec,
+          architecture, UI, tests, then the numbers. At Looptain that was one
+          codebase for three live brands, a token-driven design system, and
+          real-time gameplay plus wallet sync over WebSockets. I am now building
+          Noxaren, a white-label demo casino: React player app, operator
+          console, and the NestJS API behind them. Animation pipelines that
+          hold 60/30 FPS. A JavaScript bundle cut by about 30%. Lighthouse load
+          from ~2.0s to ~1.5s. PostHog owned on the frontend - flags,
+          experiments, offer timing. At Looptain I worked with product, design,
+          backend, QA, and data in a six-engineer team. Native Russian. English
+          for speech, writing, and technical docs. I use AI as leverage, not as
+          the author:
+          research, scaffolding, refactors, and first drafts. Architecture,
+          taste, and review stay mine. I do not ship generated slop. If it goes
+          out, I can defend every line.
+        </p>
+
+        <h2>Experience</h2>
+
+        <section class="job">
+          <div class="job-head">
+            <p class="when">
+              Aug 2026 – Present<br />
+              2 mo<br />
+              Independent · Remote
+            </p>
+            <div>
+              <h3>Senior Frontend Engineer</h3>
+              <p class="company">Noxaren</p>
+              <p class="summary">
+                Building Noxaren, a white-label demo casino: player app,
+                operator console, and the NestJS API. Virtual NOX only. The
+                server settles every result.
+              </p>
+              <ul>
+                <li>
+                  Built the React player around four modes that do not share a
+                  runtime. Crash keeps a live multiplier curve, a tracking
+                  camera, a 3D ship, and other players' cash-outs on one frame.
+                  Plinko draws many balls through a peg board that still has to
+                  land the server's bucket. Chicken hops a scrolling road while
+                  traffic runs in lanes ahead. Tower is a floor-by-floor pick:
+                  a safe door climbs the board by a measured row, a trap blows
+                  the door and reveals the floor.
+                </li>
+                <li>
+                  Game and wallet state over Socket.IO. The server settles every
+                  result; the client owns the motion and the interaction.
+                </li>
+                <li>
+                  White-label theme tokens and brand assets so one frontend
+                  reskins without forking the game UI.
+                </li>
+                <li>
+                  Shipped the operator console (React, MUI): users, risk alerts,
+                  bans, balance adjustments, per-game RTP, VIP, and retention on
+                  the same API.
+                </li>
+              </ul>
+              <p class="tech">
+                React 19 · TypeScript · Vite · Tailwind · TanStack Query ·
+                Socket.IO · MUI
+              </p>
+              <p class="tech">
+                <a href="https://noxaren.com/crash">noxaren.com/crash</a>
+                ·
+                <a href="https://noxaren.com/plinko">noxaren.com/plinko</a>
+                ·
+                <a href="https://noxaren.com/chicken">noxaren.com/chicken</a>
+                ·
+                <a href="https://noxaren.com/tower">noxaren.com/tower</a>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="job">
+          <div class="job-head">
+            <p class="when">
+              May 2024 – Oct 2026<br />
+              2 yr 5 mo<br />
+              Remote
+            </p>
+            <div>
+              <h3>Senior Frontend Developer</h3>
+              <p class="company">Looptain.Limited</p>
+              <p class="summary">
+                Owned the Vue 3 + TypeScript frontend for a real-time web
+                platform: architecture, design system, gameplay UI, wallet, and
+                product analytics. Spec → ship → metrics with product, design,
+                backend, QA, and data.
+              </p>
+              <ul>
+                <li>
+                  Built and maintained core real-time surfaces (crate opening,
+                  roulette, case battles, miner) with low-latency WebSocket game
+                  state and wallet sync for hundreds of concurrent players.
+                </li>
+                <li>
+                  Owned the V2 UI platform: 50+ reusable components, Storybook,
+                  Figma design tokens; one codebase serving 3 production brands.
+                </li>
+                <li>
+                  Cut JS bundle ~30% (Vite analyzer: code splitting, deps, build
+                  config) and Lighthouse load ~2.0s → ~1.5s (lazy routes, asset
+                  delivery, render strategy).
+                </li>
+                <li>
+                  Engineered animation pipelines that hold 60/30 FPS on crate and
+                  gameplay UI (render + DOM budgets, mobile and desktop).
+                </li>
+                <li>
+                  Designed wallet and transaction UI synced with backend over
+                  REST and WebSockets.
+                </li>
+                <li>
+                  Owned frontend PostHog: SDK, identify, feature flags,
+                  experiments, session replay, surveys; offer-modal targeting
+                  with backend and product.
+                </li>
+                <li>
+                  Code review and architecture guidance in a 6-engineer team;
+                  Vitest/Jest and Playwright on gameplay and money paths.
+                </li>
+              </ul>
+              <p class="tech">
+                Vue 3 · TypeScript · Pinia · Vite · Tailwind · WebSockets ·
+                Storybook · PostHog · Playwright
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="job">
+          <div class="job-head">
+            <p class="when">
+              Sep 2021 – Jul 2022<br />
+              11 mo<br />
+              Türkiye · Remote
+            </p>
+            <div>
+              <h3>Middle+ Frontend Developer</h3>
+              <p class="company">Insider</p>
+              <p class="summary">
+                Customer-engagement and marketing automation platform used by
+                global enterprise clients.
+              </p>
+              <ul>
+                <li>
+                  Shipped complex Vue.js and vanilla JavaScript UI integrated
+                  with PHP and Go APIs.
+                </li>
+                <li>
+                  Designed and published internal NPM packages reused across
+                  multiple frontend projects.
+                </li>
+                <li>
+                  Contributed to frontend architecture and component standards
+                  with backend and product.
+                </li>
+              </ul>
+              <p class="tech">Vue.js · JavaScript · NPM · REST · PHP · Go</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="job">
+          <div class="job-head">
+            <p class="when">
+              Dec 2020 – Dec 2021<br />
+              1 yr 1 mo<br />
+              Moscow · Remote
+            </p>
+            <div>
+              <h3>Middle Frontend Developer</h3>
+              <p class="company">Unicode</p>
+              <p class="summary">
+                Visual website constructor - a Tilda-style site builder for
+                user-generated pages.
+              </p>
+              <ul>
+                <li>
+                  Built and maintained the Vue.js editor and site-rendering UI:
+                  layout, blocks, preview, and publish.
+                </li>
+                <li>
+                  Integrated frontend with Python APIs for save/load, assets,
+                  and publish.
+                </li>
+                <li>
+                  Improved desktop and mobile performance of the constructor and
+                  the generated sites.
+                </li>
+                <li>
+                  Automated tests with Jest on critical editor and publish
+                  paths.
+                </li>
+                <li>
+                  Mentored junior developers and reviewed PRs with design and
+                  backend.
+                </li>
+              </ul>
+              <p class="tech">Vue.js · JavaScript · Jest · REST · Python</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="job">
+          <div class="job-head">
+            <p class="when">
+              Dec 2019 – Jan 2021<br />
+              1 yr 2 mo<br />
+              Poland
+            </p>
+            <div>
+              <h3>Junior+ / Pre-Middle Frontend Developer</h3>
+              <p class="company">SEDEMO Trading and Investments</p>
+              <p class="summary">
+                Real-time gaming / case-opening platform - the same product
+                class as the later roles.
+              </p>
+              <ul>
+                <li>
+                  Built responsive Vue.js and Nuxt.js UI for crate/case flows
+                  and related game surfaces.
+                </li>
+                <li>
+                  Integrated frontend with PHP APIs for catalog, open/result,
+                  and user state.
+                </li>
+                <li>
+                  Improved performance and layout across desktop and mobile in
+                  production.
+                </li>
+              </ul>
+              <p class="tech">Vue.js · Nuxt.js · JavaScript · SCSS · REST · PHP</p>
+            </div>
+          </div>
+        </section>
+
+        <h2>Selected work</h2>
+        <div class="projects">
+          <article class="project">
+            <div>
+              <h3>Noxaren</h3>
+              <p class="context">Independent · Aug 2026–present</p>
+            </div>
+            <div>
+              <p>
+                White-label demo casino: React player app, operator console, and
+                a NestJS API. Virtual NOX only.
+              </p>
+              <p>
+                Crash holds one camera for the curve, the ship, and every
+                cash-out. Plinko keeps several balls in flight and lands each
+                in the decided bucket. Chicken times a hop against traffic on a
+                road that scrolls to stay centered. Tower climbs one measured
+                floor per safe pick and reveals the floor on a trap. Admin
+                covers users, risk, bans, RTP, VIP, and retention.
+              </p>
+              <p class="tech">
+                React 19 · TypeScript · Vite · Tailwind · Socket.IO · MUI
+              </p>
+            </div>
+          </article>
+          <article class="project">
+            <div>
+              <h3>Multi-brand real-time platform</h3>
+              <p class="context">Looptain · 2024–2026</p>
+            </div>
+            <div>
+              <p>
+                One Vue 3 + TypeScript frontend serving three live brands, with
+                gameplay and wallet state over WebSockets.
+              </p>
+              <p>
+                Hundreds of concurrent players on crate, roulette, battles, and
+                miner surfaces. Low-latency game state and wallet sync.
+              </p>
+              <p class="tech">Vue 3 · TypeScript · Pinia · WebSockets · Vite</p>
+            </div>
+          </article>
+          <article class="project">
+            <div>
+              <h3>V2 UI platform</h3>
+              <p class="context">Looptain · design system</p>
+            </div>
+            <div>
+              <p>
+                Token-driven component library that replaced one-off brand UI
+                with a single production system.
+              </p>
+              <p>
+                50+ reusable components, Storybook, Figma tokens. One codebase,
+                three production brands, CDN-delivered assets.
+              </p>
+              <p class="tech">Storybook · Figma tokens · Tailwind · SCSS</p>
+            </div>
+          </article>
+          <article class="project">
+            <div>
+              <h3>Client performance program</h3>
+              <p class="context">Looptain · platform</p>
+            </div>
+            <div>
+              <p>
+                Bundle, load, and frame-budget work on interactive gameplay UI -
+                not a marketing landing page.
+              </p>
+              <p>
+                JS bundle about −30%. Lighthouse load ~2.0s → ~1.5s. Animation
+                pipelines holding 60/30 FPS on crate and gameplay screens.
+              </p>
+              <p class="tech">Vite · Webpack · Lighthouse · GSAP</p>
+            </div>
+          </article>
+          <article class="project">
+            <div>
+              <h3>Visual site constructor</h3>
+              <p class="context">Unicode · 2020–2021</p>
+            </div>
+            <div>
+              <p>
+                Editor and renderer for user-generated sites: layout, blocks,
+                preview, publish.
+              </p>
+              <p>
+                Python API integration for structure and assets. Jest coverage
+                on editor and publish. Mentored juniors on the same codebase.
+              </p>
+              <p class="tech">Vue.js · Jest · Python APIs</p>
+            </div>
+          </article>
+        </div>
+
+        <h2>Stack</h2>
+        <div class="skills">
+          <div>
+            <h3>Interface</h3>
+            <p>
+              Vue 3 · React · Vue.js · Nuxt.js · TypeScript · JavaScript · Pinia ·
+              TanStack Query · i18n · PWA
+            </p>
+          </div>
+          <div>
+            <h3>Systems</h3>
+            <p>
+              Design systems · Storybook · Figma tokens · Tailwind CSS · SCSS ·
+              Component architecture
+            </p>
+          </div>
+          <div>
+            <h3>Realtime &amp; data</h3>
+            <p>WebSockets · REST · PostHog · Feature flags · Wallet / payments UI</p>
+          </div>
+          <div>
+            <h3>Quality</h3>
+            <p>Vitest · Jest · Playwright · Vite · Webpack · GSAP</p>
+          </div>
+        </div>
+
+        <p class="footnote">
+          Native Russian. English for speech, writing, and technical docs.
+        </p>
+      </article>
+    </div>
+  </body>
+</html>

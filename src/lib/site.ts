@@ -80,15 +80,12 @@ export function personJsonLd(siteUrl: string) {
         knowsLanguage: ["en", "ru"],
         knowsAbout: [
           "Vue 3",
+          "React",
           "TypeScript",
           "Design systems",
           "Real-time web applications",
           "WebSockets",
         ],
-        worksFor: {
-          "@type": "Organization",
-          name: "Looptain.Limited",
-        },
       },
       {
         "@type": "WebSite",

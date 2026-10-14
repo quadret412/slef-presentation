@@ -191,7 +191,7 @@
   </head>
   <body>
     <div class="toolbar">
-      <p>US resume · Letter 8.5×11 · Save as PDF · turn off Headers and footers</p>
+      <p>US resume · Letter · Uruguay · Save as PDF · turn off Headers and footers</p>
       <button type="button" onclick="window.print()">Print / Save PDF</button>
     </div>
 
@@ -215,29 +215,66 @@
 
         <h2>Summary</h2>
         <p class="summary">
-          Senior Frontend Engineer with 6+ years in Vue and TypeScript. I own
-          real-time, multi-brand frontends from architecture and design system
-          through ship and metrics. Recent work: one Vue 3 codebase serving 3
-          live brands, JS bundle cut about 30%, Lighthouse load ~2.0s to ~1.5s,
-          gameplay UI holding 60/30 FPS. I use AI for research, scaffolding,
-          and refactors; architecture and review stay mine. Open to Senior
-          Frontend and UI Platform roles. Remote.
+          Senior Frontend Engineer with 6+ years in Vue, React, and TypeScript.
+          I own real-time frontends from architecture through ship. At Looptain:
+          one Vue 3 codebase, 3 brands, JS bundle cut about 30%, Lighthouse load
+          ~2.0s to ~1.5s, gameplay UI holding 60/30 FPS. Now building Noxaren, a
+          white-label demo casino (player app, operator console, and API). I use
+          AI for research, scaffolding, and refactors; architecture and review
+          stay mine. Open to Senior Frontend and UI Platform roles. Remote.
         </p>
 
         <h2>Experience</h2>
 
         <section class="job">
-          <p class="job-title">Senior Frontend Developer</p>
-          <p class="job-meta">Looptain.Limited | Remote | May 2024 - Present</p>
+          <p class="job-title">Senior Frontend Engineer</p>
+          <p class="job-meta">Noxaren | Independent, Remote | Aug 2026 - Present</p>
           <ul>
             <li>
-              Built and maintain core real-time surfaces (crate opening,
+              Built the React player around four modes that do not share a
+              runtime. Crash keeps a live multiplier curve, a tracking camera,
+              a 3D ship, and other players' cash-outs on one frame. Plinko draws
+              many balls through a peg board that still has to land the server's
+              bucket. Chicken hops a scrolling road while traffic runs in lanes
+              ahead. Tower is a floor-by-floor pick: a safe door climbs the
+              board by a measured row, a trap blows the door and reveals the
+              floor.
+            </li>
+            <li>
+              Live:
+              <a href="https://noxaren.com/crash">noxaren.com/crash</a>,
+              <a href="https://noxaren.com/plinko">noxaren.com/plinko</a>,
+              <a href="https://noxaren.com/chicken">noxaren.com/chicken</a>,
+              <a href="https://noxaren.com/tower">noxaren.com/tower</a>.
+            </li>
+            <li>
+              Game and wallet state over Socket.IO. The server settles every
+              result; the client owns the motion and the interaction.
+            </li>
+            <li>
+              White-label theme tokens and brand assets so one frontend reskins
+              without forking the game UI.
+            </li>
+            <li>
+              Shipped the operator console (React, MUI): users, risk alerts,
+              bans, balance adjustments, per-game RTP, VIP, and retention on the
+              same NestJS API.
+            </li>
+          </ul>
+        </section>
+
+        <section class="job">
+          <p class="job-title">Senior Frontend Developer</p>
+          <p class="job-meta">Looptain.Limited | Remote | May 2024 - Oct 2026</p>
+          <ul>
+            <li>
+              Built and maintained core real-time surfaces (crate opening,
               roulette, case battles, miner) with low-latency WebSocket game
               state and wallet sync for hundreds of concurrent players.
             </li>
             <li>
-              Own the V2 UI platform: 50+ reusable components, Storybook, Figma
-              design tokens; one codebase serving 3 production brands.
+              Owned the V2 UI platform: 50+ reusable components, Storybook,
+              Figma design tokens; one codebase serving 3 production brands.
             </li>
             <li>
               Cut JS bundle ~30% (code splitting, dependencies, build config)
@@ -335,7 +372,7 @@
         <h2>Skills</h2>
         <div class="skills">
           <p>
-            Vue 3, Vue.js, Nuxt.js, TypeScript, JavaScript, Pinia, TanStack
+            Vue 3, React, Vue.js, Nuxt.js, TypeScript, JavaScript, Pinia, TanStack
             Query, i18n, PWA
           </p>
           <p>

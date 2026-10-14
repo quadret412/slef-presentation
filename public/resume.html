@@ -409,7 +409,7 @@
   <body>
     <div class="toolbar">
       <p>
-        Printable résumé · A4 · Save as PDF · turn off Headers and footers
+        Printable résumé · A4 · Uruguay · Save as PDF · turn off Headers and footers
       </p>
       <button type="button" onclick="window.print()">Print / Save PDF</button>
     </div>
@@ -470,15 +470,18 @@
 
         <h2>About</h2>
         <p class="about">
-          I ship Vue and TypeScript products end to end: spec, architecture, UI,
-          tests, then the numbers. Most recently that means one codebase for
-          three live brands, a token-driven design system, and real-time
-          gameplay plus wallet sync over WebSockets. Animation pipelines that
+          I ship Vue, React, and TypeScript products end to end: spec,
+          architecture, UI, tests, then the numbers. At Looptain that was one
+          codebase for three live brands, a token-driven design system, and
+          real-time gameplay plus wallet sync over WebSockets. I am now building
+          Noxaren, a white-label demo casino: React player app, operator
+          console, and the NestJS API behind them. Animation pipelines that
           hold 60/30 FPS. A JavaScript bundle cut by about 30%. Lighthouse load
           from ~2.0s to ~1.5s. PostHog owned on the frontend - flags,
-          experiments, offer timing. I work with product, design, backend, QA,
-          and data in a six-engineer team. Native Russian. English for speech,
-          writing, and technical docs. I use AI as leverage, not as the author:
+          experiments, offer timing. At Looptain I worked with product, design,
+          backend, QA, and data in a six-engineer team. Native Russian. English
+          for speech, writing, and technical docs. I use AI as leverage, not as
+          the author:
           research, scaffolding, refactors, and first drafts. Architecture,
           taste, and review stay mine. I do not ship generated slop. If it goes
           out, I can defend every line.
@@ -489,27 +492,84 @@
         <section class="job">
           <div class="job-head">
             <p class="when">
-              May 2024 – Present<br />
-              2 yr 4 mo<br />
+              Aug 2026 – Present<br />
+              2 mo<br />
+              Independent · Remote
+            </p>
+            <div>
+              <h3>Senior Frontend Engineer</h3>
+              <p class="company">Noxaren</p>
+              <p class="summary">
+                Building Noxaren, a white-label demo casino: player app,
+                operator console, and the NestJS API. Virtual NOX only. The
+                server settles every result.
+              </p>
+              <ul>
+                <li>
+                  Built the React player around four modes that do not share a
+                  runtime. Crash keeps a live multiplier curve, a tracking
+                  camera, a 3D ship, and other players' cash-outs on one frame.
+                  Plinko draws many balls through a peg board that still has to
+                  land the server's bucket. Chicken hops a scrolling road while
+                  traffic runs in lanes ahead. Tower is a floor-by-floor pick:
+                  a safe door climbs the board by a measured row, a trap blows
+                  the door and reveals the floor.
+                </li>
+                <li>
+                  Game and wallet state over Socket.IO. The server settles every
+                  result; the client owns the motion and the interaction.
+                </li>
+                <li>
+                  White-label theme tokens and brand assets so one frontend
+                  reskins without forking the game UI.
+                </li>
+                <li>
+                  Shipped the operator console (React, MUI): users, risk alerts,
+                  bans, balance adjustments, per-game RTP, VIP, and retention on
+                  the same API.
+                </li>
+              </ul>
+              <p class="tech">
+                React 19 · TypeScript · Vite · Tailwind · TanStack Query ·
+                Socket.IO · MUI
+              </p>
+              <p class="tech">
+                <a href="https://noxaren.com/crash">noxaren.com/crash</a>
+                ·
+                <a href="https://noxaren.com/plinko">noxaren.com/plinko</a>
+                ·
+                <a href="https://noxaren.com/chicken">noxaren.com/chicken</a>
+                ·
+                <a href="https://noxaren.com/tower">noxaren.com/tower</a>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="job">
+          <div class="job-head">
+            <p class="when">
+              May 2024 – Oct 2026<br />
+              2 yr 5 mo<br />
               Remote
             </p>
             <div>
               <h3>Senior Frontend Developer</h3>
               <p class="company">Looptain.Limited</p>
               <p class="summary">
-                Own the Vue 3 + TypeScript frontend for a real-time web
+                Owned the Vue 3 + TypeScript frontend for a real-time web
                 platform: architecture, design system, gameplay UI, wallet, and
                 product analytics. Spec → ship → metrics with product, design,
                 backend, QA, and data.
               </p>
               <ul>
                 <li>
-                  Built and maintain core real-time surfaces (crate opening,
+                  Built and maintained core real-time surfaces (crate opening,
                   roulette, case battles, miner) with low-latency WebSocket game
                   state and wallet sync for hundreds of concurrent players.
                 </li>
                 <li>
-                  Own the V2 UI platform: 50+ reusable components, Storybook,
+                  Owned the V2 UI platform: 50+ reusable components, Storybook,
                   Figma design tokens; one codebase serving 3 production brands.
                 </li>
                 <li>
@@ -629,7 +689,7 @@
               <p class="company">SEDEMO Trading and Investments</p>
               <p class="summary">
                 Real-time gaming / case-opening platform - the same product
-                class as the current role.
+                class as the later roles.
               </p>
               <ul>
                 <li>
@@ -654,8 +714,31 @@
         <div class="projects">
           <article class="project">
             <div>
+              <h3>Noxaren</h3>
+              <p class="context">Independent · Aug 2026–present</p>
+            </div>
+            <div>
+              <p>
+                White-label demo casino: React player app, operator console, and
+                a NestJS API. Virtual NOX only.
+              </p>
+              <p>
+                Crash holds one camera for the curve, the ship, and every
+                cash-out. Plinko keeps several balls in flight and lands each
+                in the decided bucket. Chicken times a hop against traffic on a
+                road that scrolls to stay centered. Tower climbs one measured
+                floor per safe pick and reveals the floor on a trap. Admin
+                covers users, risk, bans, RTP, VIP, and retention.
+              </p>
+              <p class="tech">
+                React 19 · TypeScript · Vite · Tailwind · Socket.IO · MUI
+              </p>
+            </div>
+          </article>
+          <article class="project">
+            <div>
               <h3>Multi-brand real-time platform</h3>
-              <p class="context">Looptain · 2024–present</p>
+              <p class="context">Looptain · 2024–2026</p>
             </div>
             <div>
               <p>
@@ -727,7 +810,7 @@
           <div>
             <h3>Interface</h3>
             <p>
-              Vue 3 · Vue.js · Nuxt.js · TypeScript · JavaScript · Pinia ·
+              Vue 3 · React · Vue.js · Nuxt.js · TypeScript · JavaScript · Pinia ·
               TanStack Query · i18n · PWA
             </p>
           </div>

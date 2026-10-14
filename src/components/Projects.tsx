@@ -1,4 +1,4 @@
-import { profile } from "@/data/profile";
+import { builtAlone, profile } from "@/data/profile";
 import { Reveal } from "./Reveal";
 
 export function Projects() {
@@ -31,6 +31,21 @@ export function Projects() {
                 <p className="mt-5 text-[13px] text-sand-dim">
                   {project.stack.join("  ·  ")}
                 </p>
+                {project.name === "Noxaren" ? (
+                  <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-[13px]">
+                    {builtAlone.modes.map((mode) => (
+                      <a
+                        key={mode.href}
+                        href={mode.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-steel underline decoration-line/70 underline-offset-2 hover:text-sand"
+                      >
+                        {mode.href.replace("https://", "")}
+                      </a>
+                    ))}
+                  </p>
+                ) : null}
               </div>
             </article>
           </Reveal>

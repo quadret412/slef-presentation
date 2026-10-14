@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Bar, Doughnut, Line } from "react-chartjs-2";
 import { useReducedMotion } from "motion/react";
 import type { ChartOptions, Plugin } from "chart.js";
-import { metrics } from "@/data/profile";
+import { builtAlone, metrics } from "@/data/profile";
 import { baseOptions, chartMotion, useChartColors } from "./charts";
 import { Reveal } from "./Reveal";
 import { SectionAnchor } from "./SectionAnchor";
@@ -173,8 +173,9 @@ export function Metrics() {
       </Reveal>
       <Reveal delay={0.06}>
         <p className="mt-4 max-w-[54ch] text-[17px] leading-[1.6] text-sand-dim">
-          Load, bundle, brands, components, and frame budget. The component
-          line is an illustrative path to the 50+ floor.
+          Noxaren is the platform I built alone. Below that, Looptain is the
+          measured frontend: load, bundle, brands, components, and frame
+          budget. The component line is an illustrative path to the 50+ floor.
         </p>
       </Reveal>
 
@@ -182,6 +183,66 @@ export function Metrics() {
         ref={ref}
         className="mt-10 grid min-w-0 items-start gap-x-16 gap-y-14 lg:grid-cols-12"
       >
+        <figure className="min-w-0 lg:col-span-12">
+          <figcaption className="text-[17px] font-medium tracking-[-0.02em] text-sand">
+            {builtAlone.title}
+          </figcaption>
+          <p className="mt-2 max-w-[62ch] text-[14px] leading-6 text-sand-dim">
+            {builtAlone.lead}
+          </p>
+          <div className="mt-5 grid gap-3 md:grid-cols-3">
+            {builtAlone.parts.map((part) => (
+              <div
+                key={part.name}
+                className="rounded-2xl border border-line bg-fill px-4 py-4"
+              >
+                <p className="text-[12px] text-steel">{part.name}</p>
+                <p className="mt-1 text-[16px] font-medium tracking-[-0.02em] text-sand">
+                  {part.stack}
+                </p>
+                <dl className="mt-4 space-y-3 text-[13px] leading-5">
+                  {(
+                    [
+                      ["What", part.what],
+                      ["How", part.how],
+                      ["Why", part.why],
+                    ] as const
+                  ).map(([label, text]) => (
+                    <div key={label}>
+                      <dt className="text-steel">{label}</dt>
+                      <dd className="mt-0.5 text-sand-dim">{text}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 grid gap-3 md:grid-cols-2">
+            {builtAlone.modes.map((mode) => (
+              <div
+                key={mode.name}
+                className="rounded-2xl border border-line px-4 py-4"
+              >
+                <p className="text-[12px] text-steel">{mode.name}</p>
+                <a
+                  href={mode.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-1 inline-block text-[13px] text-steel underline decoration-line/70 underline-offset-2 hover:text-sand"
+                >
+                  {mode.href.replace("https://", "")}
+                </a>
+                <p className="mt-2 text-[15px] font-medium leading-snug tracking-[-0.02em] text-sand">
+                  {mode.line}
+                </p>
+                <p className="mt-2 text-[13px] leading-5 text-sand-dim">
+                  {mode.detail}
+                </p>
+              </div>
+            ))}
+          </div>
+        </figure>
+
         <figure className="min-w-0 lg:col-span-7">
           <figcaption className="text-[17px] font-medium tracking-[-0.02em] text-sand">
             Lighthouse load

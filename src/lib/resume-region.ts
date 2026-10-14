@@ -1,45 +1,41 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { profile } from "@/data/profile";
 import { asset } from "@/lib/site";
 
-const US_RESUME_COUNTRIES = new Set(["US", "CA"]);
-const STORAGE_KEY = "resume-country";
+const STORAGE_KEY = "resume-continent";
+const AMERICAS = new Set(["NA", "SA"]);
 
-export type ResumeDownload = {
+type ResumeDownload = {
   href: string;
   file: string;
-  region: "eu" | "us";
 };
 
-const euResume: ResumeDownload = {
-  href: asset(profile.resumeHref),
-  file: profile.resumeFile,
-  region: "eu",
+const a4Montenegro: ResumeDownload = {
+  href: asset("/Dmitry-Antonov-Resume-Montenegro.pdf"),
+  file: "Dmitry-Antonov-Resume-Montenegro.pdf",
 };
 
-const usResume: ResumeDownload = {
-  href: asset(profile.resumeUsHref),
-  file: profile.resumeUsFile,
-  region: "us",
+const usUruguay: ResumeDownload = {
+  href: asset("/Dmitry-Antonov-Resume-US.pdf"),
+  file: "Dmitry-Antonov-Resume-US.pdf",
 };
 
-function resumeForCountry(country: string | null): ResumeDownload {
-  return country && US_RESUME_COUNTRIES.has(country) ? usResume : euResume;
+export function resumeForContinent(code: string | null): ResumeDownload {
+  return code && AMERICAS.has(code) ? usUruguay : a4Montenegro;
 }
 
-async function detectCountry(): Promise<string | null> {
+async function detectContinent(): Promise<string | null> {
   const controller = new AbortController();
   const timer = window.setTimeout(() => controller.abort(), 2500);
   try {
-    const response = await fetch("https://get.geojs.io/v1/ip/country.json", {
+    const response = await fetch("https://get.geojs.io/v1/ip/geo.json", {
       signal: controller.signal,
     });
     if (!response.ok) return null;
-    const data = (await response.json()) as { country?: string };
-    const country = data.country?.toUpperCase();
-    return country && /^[A-Z]{2}$/.test(country) ? country : null;
+    const data = (await response.json()) as { continent_code?: string };
+    const code = data.continent_code?.toUpperCase();
+    return code && /^[A-Z]{2}$/.test(code) ? code : null;
   } catch {
     return null;
   } finally {
@@ -48,20 +44,20 @@ async function detectCountry(): Promise<string | null> {
 }
 
 export function useResumeDownload(): ResumeDownload {
-  const [resume, setResume] = useState<ResumeDownload>(euResume);
+  const [resume, setResume] = useState<ResumeDownload>(a4Montenegro);
 
   useEffect(() => {
     const cached = sessionStorage.getItem(STORAGE_KEY);
     if (cached) {
-      setResume(resumeForCountry(cached));
+      setResume(resumeForContinent(cached));
       return;
     }
 
     let cancelled = false;
-    detectCountry().then((country) => {
+    detectContinent().then((code) => {
       if (cancelled) return;
-      if (country) sessionStorage.setItem(STORAGE_KEY, country);
-      setResume(resumeForCountry(country));
+      if (code) sessionStorage.setItem(STORAGE_KEY, code);
+      setResume(resumeForContinent(code));
     });
 
     return () => {
