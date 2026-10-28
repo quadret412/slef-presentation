@@ -4,7 +4,6 @@ export const profile = {
   title: "Senior Frontend Engineer",
   headline:
     "Vue.js · TypeScript · Design Systems · Real-Time Web Apps",
-  location: "Punta del Este, Uruguay",
   workMode: "Remote",
   years: "6+",
   email: "quadret412@gmail.com",
@@ -12,8 +11,6 @@ export const profile = {
   github: "https://github.com/quadret412",
   telegram: "https://t.me/quadret412",
   telegramHandle: "@quadret412",
-  whatsapp: "https://wa.me/38269226494",
-  whatsappLabel: "+382 69 226 494",
   photo: {
     src: "/dmitry.jpg",
     alt: "Dmitry Antonov, photographed in profile against coastal cliffs",
@@ -22,10 +19,10 @@ export const profile = {
     "I own Vue 3 + TypeScript frontends for real-time, multi-brand products - architecture, design system, and the metrics after ship.",
   lookingFor: "Open to Senior Frontend and UI Platform roles.",
   about: [
-    "I ship Vue, React, and TypeScript products end to end: spec, architecture, UI, tests, then the numbers. At Looptain that was one codebase for three live brands, a token-driven design system, and real-time gameplay plus wallet sync over WebSockets. I am now building Noxaren, a white-label demo casino: React player app, operator console, and the NestJS API behind them.",
+    "I ship Vue, React, and TypeScript products end to end: spec, architecture, UI, tests, then the numbers. At Looptain that was one codebase for three live brands, a token-driven design system, and real-time gameplay plus wallet sync over WebSockets. I am now building Noxaren, a casino game platform: React player app, operator console, and the NestJS API behind them.",
     "The work I care about is usually invisible in a GitHub sample. Animation pipelines that hold 60/30 FPS. A JavaScript bundle cut by about 30%. Lighthouse load from ~2.0s to ~1.5s. PostHog owned on the frontend - flags, experiments, offer timing - not bolted on after launch.",
     "I use AI as leverage, not as the author. It handles research, scaffolding, refactors, and first drafts. I keep architecture, taste, and review. I do not ship generated slop. If it goes out, I can defend every line.",
-    "At Looptain I worked with product, design, backend, QA, and data in a six-engineer team. Native Russian. English for speech, writing, and technical docs. Remote from Punta del Este.",
+    "At Looptain I worked with product, design, backend, QA, and data in a six-engineer team. Across previous teams I have hands-on people management experience: hiring, 1:1s with developers, and leading engineers day to day. Native Russian. English for speech, writing, and technical docs. Remote.",
   ],
   experience: [
     {
@@ -36,11 +33,11 @@ export const profile = {
       duration: "2 mo",
       place: "Independent · Remote",
       summary:
-        "Building Noxaren, a white-label demo casino: player app, operator console, and the NestJS API. Virtual NOX only. The server settles every result.",
+        "Building Noxaren, a casino game platform: player app, operator console, and the NestJS API. Virtual NOX only. The server settles every result.",
       bullets: [
-        "Built the React player around four modes that do not share a runtime. Crash keeps a live multiplier curve, a tracking camera, a 3D ship, and other players' cash-outs on one frame. Plinko draws many balls through a peg board that still has to land the server's bucket. Chicken hops a scrolling road while traffic runs in lanes ahead. Tower is a floor-by-floor pick: a safe door climbs the board by a measured row, a trap blows the door and reveals the floor.",
-        "Game and wallet state over Socket.IO. The server settles every result; the client owns the motion and the interaction.",
-        "White-label theme tokens and brand assets so one frontend reskins without forking the game UI.",
+        "Built the React + TypeScript player app with four game modes (Crash, Plinko, Chicken, Tower), each with its own real-time rendering loop held at 60 FPS.",
+        "Real-time game and wallet state over Socket.IO with server-authoritative results; the client animates to the settled outcome (multiplier curve, physics landing, multiplayer cash-outs).",
+        "Theme tokens and brand assets so one frontend reskins without forking the game UI.",
         "Shipped the operator console (React, MUI): users, risk alerts, bans, balance adjustments, per-game RTP, VIP, and retention on the same API.",
       ],
       tech: [
@@ -51,6 +48,7 @@ export const profile = {
         "TanStack Query",
         "Socket.IO",
         "MUI",
+        "NestJS",
       ],
     },
     {
@@ -84,6 +82,22 @@ export const profile = {
       ],
     },
     {
+      company: "Self-employed",
+      role: "Freelance Frontend Developer / Independent Projects",
+      start: "Aug 2022",
+      end: "Apr 2024",
+      duration: "1 yr 9 mo",
+      place: "Remote",
+      summary:
+        "Freelance frontend work and own projects between full-time roles.",
+      bullets: [
+        "Freelance Vue, Nuxt, and React work for small clients: feature development, refactors, and performance fixes.",
+        "Built a multilingual Nuxt SSR blog from scratch with its own publishing admin, Tailwind UI, and SEO setup (under NDA).",
+        "Own projects to deepen fullstack skills: Node.js / NestJS APIs and real-time features with Socket.IO.",
+      ],
+      tech: ["Vue 3", "Nuxt.js", "SSR", "React", "Tailwind", "Node.js", "NestJS"],
+    },
+    {
       company: "Insider",
       role: "Middle+ Frontend Developer",
       start: "Sep 2021",
@@ -104,7 +118,7 @@ export const profile = {
       role: "Middle Frontend Developer",
       start: "Dec 2020",
       end: "Dec 2021",
-      duration: "1 yr 1 mo",
+      duration: "1 yr 1 mo · overlap: project handover",
       place: "Moscow · Remote",
       summary:
         "Visual website constructor - a Tilda-style site builder for user-generated pages.",
@@ -119,7 +133,7 @@ export const profile = {
     },
     {
       company: "SEDEMO Trading and Investments",
-      role: "Junior+ / Pre-Middle Frontend Developer",
+      role: "Frontend Developer",
       start: "Dec 2019",
       end: "Jan 2021",
       duration: "1 yr 2 mo",
@@ -139,9 +153,9 @@ export const profile = {
       name: "Noxaren",
       context: "Independent · Aug 2026–present",
       oneLiner:
-        "White-label demo casino: React player app, operator console, and a NestJS API. Virtual NOX only.",
+        "Casino game platform: React player app, operator console, and a NestJS API. Virtual NOX only.",
       outcome:
-        "Crash holds one camera for the curve, the ship, and every cash-out. Plinko keeps several balls in flight and lands each in the decided bucket. Chicken times a hop against traffic on a road that scrolls to stay centered. Tower climbs one measured floor per safe pick and reveals the floor on a trap. Admin covers users, risk, bans, RTP, VIP, and retention.",
+        "Four game modes with real-time rendering at 60 FPS, animated to server-authoritative results over Socket.IO; theme tokens for reskins. Admin covers users, risk, bans, RTP, VIP, and retention.",
       stack: ["React 19", "TypeScript", "Vite", "Tailwind", "Socket.IO", "MUI"],
     },
     {
@@ -186,15 +200,16 @@ export const profile = {
       group: "Interface",
       items: [
         "Vue 3",
-        "React",
-        "Vue.js",
         "Nuxt.js",
+        "React",
         "TypeScript",
         "JavaScript",
         "Pinia",
         "TanStack Query",
+        "SSR",
         "i18n",
         "PWA",
+        "MUI",
       ],
     },
     {
@@ -210,11 +225,11 @@ export const profile = {
     },
     {
       group: "Realtime & data",
-      items: ["WebSockets", "REST", "PostHog", "Feature flags", "Wallet / payments UI"],
+      items: ["Node.js", "NestJS", "Socket.IO", "WebSockets", "REST", "PostHog", "Feature flags", "Wallet / payments UI"],
     },
     {
       group: "Quality",
-      items: ["Vitest", "Jest", "Playwright", "Vite", "Webpack", "GSAP"],
+      items: ["Vitest", "Jest", "Playwright", "Vite", "Webpack", "GSAP", "Git", "CI/CD"],
     },
   ],
 } as const;

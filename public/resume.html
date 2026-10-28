@@ -328,7 +328,7 @@
 
       @page {
         size: A4;
-        margin: 0;
+        margin: 12mm 0 14mm;
       }
 
       @page {
@@ -372,7 +372,7 @@
           width: auto;
           min-height: 0;
           margin: 0;
-          padding: 12mm 13mm;
+          padding: 0 13mm;
           background: white;
           box-shadow: none;
         }
@@ -398,6 +398,22 @@
           color: inherit;
         }
 
+        h2,
+        h3,
+        .company,
+        .job-head .summary {
+          break-after: avoid;
+          page-break-after: avoid;
+        }
+
+        .job,
+        .project,
+        .metrics,
+        .skills > div {
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+
         .portrait img,
         .job li::before {
           print-color-adjust: exact;
@@ -409,7 +425,7 @@
   <body>
     <div class="toolbar">
       <p>
-        Printable résumé · A4 · Uruguay · Save as PDF · turn off Headers and footers
+        Printable résumé · A4 · Save as PDF · turn off Headers and footers
       </p>
       <button type="button" onclick="window.print()">Print / Save PDF</button>
     </div>
@@ -435,13 +451,11 @@
           <p class="offer">
             I own Vue 3 + TypeScript frontends for real-time, multi-brand
             products - architecture, design system, and the metrics after ship.
-            Open to Senior Frontend and UI Platform roles. Remote from Punta del
-            Este, Uruguay.
+            Open to Senior Frontend and UI Platform roles. Remote.
           </p>
           <p class="contacts">
             <span>quadret412@gmail.com</span>
             <span>Telegram @quadret412</span>
-            <span>WhatsApp +382 69 226 494</span>
           </p>
         </header>
 
@@ -474,12 +488,14 @@
           architecture, UI, tests, then the numbers. At Looptain that was one
           codebase for three live brands, a token-driven design system, and
           real-time gameplay plus wallet sync over WebSockets. I am now building
-          Noxaren, a white-label demo casino: React player app, operator
+          Noxaren, a casino game platform: React player app, operator
           console, and the NestJS API behind them. Animation pipelines that
           hold 60/30 FPS. A JavaScript bundle cut by about 30%. Lighthouse load
           from ~2.0s to ~1.5s. PostHog owned on the frontend - flags,
           experiments, offer timing. At Looptain I worked with product, design,
-          backend, QA, and data in a six-engineer team. Native Russian. English
+          backend, QA, and data in a six-engineer team. I have hands-on people
+          management experience: hiring, 1:1s with developers, and leading
+          engineers day to day. Native Russian. English
           for speech, writing, and technical docs. I use AI as leverage, not as
           the author:
           research, scaffolding, refactors, and first drafts. Architecture,
@@ -500,28 +516,25 @@
               <h3>Senior Frontend Engineer</h3>
               <p class="company">Noxaren</p>
               <p class="summary">
-                Building Noxaren, a white-label demo casino: player app,
+                Building Noxaren, a casino game platform: player app,
                 operator console, and the NestJS API. Virtual NOX only. The
                 server settles every result.
               </p>
               <ul>
                 <li>
-                  Built the React player around four modes that do not share a
-                  runtime. Crash keeps a live multiplier curve, a tracking
-                  camera, a 3D ship, and other players' cash-outs on one frame.
-                  Plinko draws many balls through a peg board that still has to
-                  land the server's bucket. Chicken hops a scrolling road while
-                  traffic runs in lanes ahead. Tower is a floor-by-floor pick:
-                  a safe door climbs the board by a measured row, a trap blows
-                  the door and reveals the floor.
+                  Built the React + TypeScript player app with four game modes
+                  (Crash, Plinko, Chicken, Tower), each with its own real-time
+                  rendering loop held at 60 FPS.
                 </li>
                 <li>
-                  Game and wallet state over Socket.IO. The server settles every
-                  result; the client owns the motion and the interaction.
+                  Real-time game and wallet state over Socket.IO with
+                  server-authoritative results; the client animates to the
+                  settled outcome (multiplier curve, physics landing,
+                  multiplayer cash-outs).
                 </li>
                 <li>
-                  White-label theme tokens and brand assets so one frontend
-                  reskins without forking the game UI.
+                  Theme tokens and brand assets so one frontend reskins without
+                  forking the game UI.
                 </li>
                 <li>
                   Shipped the operator console (React, MUI): users, risk alerts,
@@ -531,7 +544,7 @@
               </ul>
               <p class="tech">
                 React 19 · TypeScript · Vite · Tailwind · TanStack Query ·
-                Socket.IO · MUI
+                Socket.IO · MUI · NestJS
               </p>
               <p class="tech">
                 <a href="https://noxaren.com/crash">noxaren.com/crash</a>
@@ -606,6 +619,38 @@
         <section class="job">
           <div class="job-head">
             <p class="when">
+              Aug 2022 – Apr 2024<br />
+              1 yr 9 mo<br />
+              Remote
+            </p>
+            <div>
+              <h3>Freelance Frontend Developer / Independent Projects</h3>
+              <p class="company">Self-employed</p>
+              <p class="summary">
+                Freelance frontend work and own projects between full-time roles.
+              </p>
+              <ul>
+                <li>
+                  Freelance Vue, Nuxt, and React work for small clients: feature
+                  development, refactors, and performance fixes.
+                </li>
+                <li>
+                  Built a multilingual Nuxt SSR blog from scratch with its own
+                  publishing admin, Tailwind UI, and SEO setup (under NDA).
+                </li>
+                <li>
+                  Own projects to deepen fullstack skills: Node.js / NestJS APIs
+                  and real-time features with Socket.IO.
+                </li>
+              </ul>
+              <p class="tech">Vue 3 · Nuxt.js · SSR · React · Tailwind · Node.js · NestJS</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="job">
+          <div class="job-head">
+            <p class="when">
               Sep 2021 – Jul 2022<br />
               11 mo<br />
               Türkiye · Remote
@@ -640,7 +685,7 @@
           <div class="job-head">
             <p class="when">
               Dec 2020 – Dec 2021<br />
-              1 yr 1 mo<br />
+              1 yr 1 mo · overlap: project handover<br />
               Moscow · Remote
             </p>
             <div>
@@ -685,7 +730,7 @@
               Poland
             </p>
             <div>
-              <h3>Junior+ / Pre-Middle Frontend Developer</h3>
+              <h3>Frontend Developer</h3>
               <p class="company">SEDEMO Trading and Investments</p>
               <p class="summary">
                 Real-time gaming / case-opening platform - the same product
@@ -719,16 +764,13 @@
             </div>
             <div>
               <p>
-                White-label demo casino: React player app, operator console, and
-                a NestJS API. Virtual NOX only.
+                Casino game platform: React player app, operator console, and a
+                NestJS API. Virtual NOX only.
               </p>
               <p>
-                Crash holds one camera for the curve, the ship, and every
-                cash-out. Plinko keeps several balls in flight and lands each
-                in the decided bucket. Chicken times a hop against traffic on a
-                road that scrolls to stay centered. Tower climbs one measured
-                floor per safe pick and reveals the floor on a trap. Admin
-                covers users, risk, bans, RTP, VIP, and retention.
+                Four game modes with real-time rendering at 60 FPS, animated to
+                server-authoritative results over Socket.IO; theme tokens for
+                reskins. Admin covers users, risk, bans, RTP, VIP, and retention.
               </p>
               <p class="tech">
                 React 19 · TypeScript · Vite · Tailwind · Socket.IO · MUI
@@ -810,8 +852,8 @@
           <div>
             <h3>Interface</h3>
             <p>
-              Vue 3 · React · Vue.js · Nuxt.js · TypeScript · JavaScript · Pinia ·
-              TanStack Query · i18n · PWA
+              Vue 3 · Nuxt.js · React · TypeScript · JavaScript · Pinia ·
+              TanStack Query · SSR · i18n · PWA · MUI
             </p>
           </div>
           <div>
@@ -823,11 +865,11 @@
           </div>
           <div>
             <h3>Realtime &amp; data</h3>
-            <p>WebSockets · REST · PostHog · Feature flags · Wallet / payments UI</p>
+            <p>Node.js · NestJS · Socket.IO · WebSockets · REST · PostHog · Feature flags · Wallet / payments UI</p>
           </div>
           <div>
             <h3>Quality</h3>
-            <p>Vitest · Jest · Playwright · Vite · Webpack · GSAP</p>
+            <p>Vitest · Jest · Playwright · Vite · Webpack · GSAP · Git · CI/CD</p>
           </div>
         </div>
 

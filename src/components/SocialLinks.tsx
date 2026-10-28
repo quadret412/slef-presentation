@@ -4,7 +4,6 @@ import {
   LinkedInIcon,
   MailIcon,
   TelegramIcon,
-  WhatsAppIcon,
 } from "./Icons";
 
 const links = [
@@ -18,12 +17,6 @@ const links = [
     href: profile.telegram,
     label: `Telegram ${profile.telegramHandle}`,
     Icon: TelegramIcon,
-    external: true,
-  },
-  {
-    href: profile.whatsapp,
-    label: `WhatsApp ${profile.whatsappLabel}`,
-    Icon: WhatsAppIcon,
     external: true,
   },
   {

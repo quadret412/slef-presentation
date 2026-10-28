@@ -12,12 +12,23 @@ export function ResumeDownload({
   label?: string;
   showIcon?: boolean;
 }) {
-  const resume = useResumeDownload();
+  const { primary } = useResumeDownload();
 
   return (
-    <a href={resume.href} download={resume.file} className={className}>
+    <a href={primary.href} download={primary.file} className={className}>
       {showIcon ? <DownloadIcon className="h-3.5 w-3.5" /> : null}
       {label}
+    </a>
+  );
+}
+
+/** Small secondary link to the other resume format. */
+export function ResumeAlternate({ className }: { className?: string }) {
+  const { alternate } = useResumeDownload();
+
+  return (
+    <a href={alternate.href} download={alternate.file} className={className}>
+      {alternate.label}
     </a>
   );
 }

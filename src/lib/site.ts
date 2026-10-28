@@ -35,7 +35,7 @@ export const siteName = `${profile.name} - ${profile.title}`;
 
 export const seo = {
   title: `${profile.name} | ${profile.title} · Vue 3, TypeScript, Design Systems`,
-  description: `${profile.title}. Vue 3, TypeScript, design systems, and real-time web apps. ${profile.lookingFor} ${profile.workMode} from ${profile.location}.`,
+  description: `${profile.title}. Vue 3, TypeScript, design systems, and real-time web apps. ${profile.lookingFor} ${profile.workMode}.`,
   shortDescription: profile.offer,
   keywords: [
     "Dmitry Antonov",
@@ -47,7 +47,6 @@ export const seo = {
     "real-time web apps",
     "UI platform",
     "remote frontend",
-    "Punta del Este",
     "WebSockets",
     "Storybook",
     "PostHog",
@@ -67,11 +66,6 @@ export function personJsonLd(siteUrl: string) {
         email: `mailto:${profile.email}`,
         url: siteUrl,
         image: `${siteUrl}${profile.photo.src}`,
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Punta del Este",
-          addressCountry: "UY",
-        },
         workLocation: {
           "@type": "Place",
           name: profile.workMode,

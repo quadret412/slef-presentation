@@ -1,5 +1,5 @@
 import { profile } from "@/data/profile";
-import { ResumeDownload } from "./ResumeDownload";
+import { ResumeAlternate, ResumeDownload } from "./ResumeDownload";
 import { Reveal } from "./Reveal";
 import { SectionAnchor } from "./SectionAnchor";
 import { SocialLinks } from "./SocialLinks";
@@ -18,14 +18,17 @@ export function Contact() {
       </Reveal>
       <Reveal delay={0.08}>
         <p className="mt-6 max-w-[46ch] text-[17px] leading-[1.6] text-sand-dim">
-          {profile.lookingFor} {profile.location}. {profile.workMode}.
+          {profile.lookingFor} {profile.workMode}.
         </p>
       </Reveal>
       <Reveal delay={0.12}>
-        <ResumeDownload
-          className="mt-10 inline-flex items-center gap-2 text-[15px] text-sand-dim transition-colors duration-200 hover:text-sand"
-          label="Download PDF resume"
-        />
+        <div className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2">
+          <ResumeDownload
+            className="inline-flex items-center gap-2 text-[15px] text-sand-dim transition-colors duration-200 hover:text-sand"
+            label="Download PDF resume"
+          />
+          <ResumeAlternate className="text-[13px] text-sand-dim/70 underline-offset-4 transition-colors duration-200 hover:text-sand hover:underline" />
+        </div>
       </Reveal>
       <footer className="mt-16 flex flex-col gap-5 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
         <SocialLinks />

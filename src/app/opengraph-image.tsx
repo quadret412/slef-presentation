@@ -5,7 +5,7 @@ import { profile } from "@/data/profile";
 
 export const dynamic = "force-static";
 
-export const alt = `${profile.name}, ${profile.title}. Vue 3, TypeScript, design systems. Remote from ${profile.location}.`;
+export const alt = `${profile.name}, ${profile.title}. Vue 3, TypeScript, design systems. Remote.`;
 export const size = {
   width: 1200,
   height: 630,
@@ -92,7 +92,7 @@ export default async function Image() {
               fontSize: 22,
             }}
           >
-            {profile.location} · {profile.workMode}
+            {profile.workMode}
           </div>
         </div>
       </div>

@@ -58,7 +58,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: reduce ? 0 : 0.3, ease: easeOut }}
         >
-          {profile.location} · {profile.workMode}
+          {profile.workMode}
         </motion.p>
         <motion.div
           className="mt-8 flex flex-wrap items-center gap-3"
