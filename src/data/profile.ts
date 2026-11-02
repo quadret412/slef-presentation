@@ -39,6 +39,9 @@ export const profile = {
         "Real-time game and wallet state over Socket.IO with server-authoritative results; the client animates to the settled outcome (multiplier curve, physics landing, multiplayer cash-outs).",
         "Theme tokens and brand assets so one frontend reskins without forking the game UI.",
         "Shipped the operator console (React, MUI): users, risk alerts, bans, balance adjustments, per-game RTP, VIP, and retention on the same API.",
+        "pnpm workspaces + Turborepo monorepo: apps/api (NestJS) and apps/web (React + Vite) on shared internal packages (@repo/contracts, game-math, game-sim, provably-fair).",
+        "GitHub Actions CI/CD: lint, typecheck, and tests; Monte Carlo RTP verification over 1M samples; Prisma migrations checked on a fresh database; Docker image builds; automated SSH deploy to a Docker Compose VPS with a health check.",
+        "AI-assisted team workflow in the repo: AGENTS.md, 15 Cursor rules (platform core, API boundaries, game packages, new-game process, pre-commit review, memory leaks, performance), 30 skills, 4 custom subagents, and a preToolUse hook that guards agent edits. Shipped a \"Verify with AI\" provably-fair feature that builds an audit prompt from round data.",
       ],
       tech: [
         "React 19",
@@ -68,6 +71,7 @@ export const profile = {
         "Designed wallet and transaction UI synced with backend over REST and WebSockets.",
         "Owned frontend PostHog: SDK, identify, feature flags, experiments, session replay, surveys; offer-modal targeting with backend and product.",
         "Code review and architecture guidance in a 6-engineer team; Vitest/Jest and Playwright on gameplay and money paths.",
+        "Set up AI-assisted workflows for the team, committed to the repo: AGENTS.md, CLAUDE.md, .cursorrules, and 11 Cursor rules (commit format, pre-commit code review, memory-leak review, test-coverage gate, multi-brand workflow, UI rules), plus pinned GSAP agent skills.",
       ],
       tech: [
         "Vue 3",
@@ -159,6 +163,15 @@ export const profile = {
       stack: ["React 19", "TypeScript", "Vite", "Tailwind", "Socket.IO", "MUI"],
     },
     {
+      name: "Ugu",
+      context: "Independent · own product",
+      oneLiner:
+        "Bedtime-tales Telegram bot and React PWA with a web cabinet.",
+      outcome:
+        "ElevenLabs TTS (eleven_v3) in production; OpenAI GPT-4o tale generation and Whisper STT integrated in code. Docker Compose on a Hetzner VPS behind Caddy (HTTPS), deployed by GitHub Actions.",
+      stack: ["FastAPI", "PostgreSQL", "Redis", "React PWA", "ElevenLabs", "OpenAI API", "Docker"],
+    },
+    {
       name: "Multi-brand real-time platform",
       context: "Looptain · 2024–2026",
       oneLiner:
@@ -230,6 +243,14 @@ export const profile = {
     {
       group: "Quality",
       items: ["Vitest", "Jest", "Playwright", "Vite", "Webpack", "GSAP", "Git", "CI/CD"],
+    },
+    {
+      group: "AI-assisted engineering",
+      items: ["Cursor rules", "AGENTS.md / CLAUDE.md", "Agent skills & subagents", "Agent hooks", "ElevenLabs / OpenAI APIs"],
+    },
+    {
+      group: "Delivery & infra",
+      items: ["pnpm workspaces", "Turborepo", "GitHub Actions", "Docker / Compose", "Caddy", "Hetzner VPS", "Vercel"],
     },
   ],
 } as const;

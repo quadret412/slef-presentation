@@ -270,6 +270,15 @@
               bans, balance adjustments, per-game RTP, VIP, and retention on the
               same NestJS API.
             </li>
+            <li>
+              pnpm workspaces + Turborepo monorepo: apps/api (NestJS) and apps/web (React + Vite) on shared internal packages (@repo/contracts, game-math, game-sim, provably-fair).
+            </li>
+            <li>
+              GitHub Actions CI/CD: lint, typecheck, and tests; Monte Carlo RTP verification over 1M samples; Prisma migrations checked on a fresh database; Docker image builds; automated SSH deploy to a Docker Compose VPS with a health check.
+            </li>
+            <li>
+              AI-assisted team workflow in the repo: AGENTS.md, 15 Cursor rules (platform core, API boundaries, game packages, new-game process, pre-commit review, memory leaks, performance), 30 skills, 4 custom subagents, and a preToolUse hook that guards agent edits. Shipped a "Verify with AI" provably-fair feature that builds an audit prompt from round data.
+            </li>
           </ul>
         </section>
 
@@ -307,6 +316,22 @@
             <li>
               Code review and architecture guidance in a 6-engineer team;
               Vitest/Jest and Playwright on gameplay and money paths.
+            </li>
+            <li>
+              Set up AI-assisted workflows for the team, committed to the repo: AGENTS.md, CLAUDE.md, .cursorrules, and 11 Cursor rules (commit format, pre-commit code review, memory-leak review, test-coverage gate, multi-brand workflow, UI rules), plus pinned GSAP agent skills.
+            </li>
+          </ul>
+        </section>
+
+        <section class="job">
+          <p class="job-title">Ugu - bedtime-tales Telegram bot + React PWA</p>
+          <p class="job-meta">Own product | Remote</p>
+          <ul>
+            <li>
+              ElevenLabs TTS (eleven_v3) in production; OpenAI GPT-4o tale generation and Whisper STT integrated in code.
+            </li>
+            <li>
+              FastAPI, PostgreSQL, Redis, React PWA; Docker Compose on a Hetzner VPS behind Caddy (HTTPS), deployed by GitHub Actions.
             </li>
           </ul>
         </section>
@@ -411,6 +436,8 @@
           <p>Node.js, NestJS, Socket.IO, WebSockets, REST, MUI</p>
           <p>PostHog, feature flags, wallet / payments UI</p>
           <p>Vitest, Jest, Playwright, Vite, Webpack, GSAP, Git, CI/CD</p>
+          <p>pnpm workspaces, Turborepo, GitHub Actions, Docker / Compose, Caddy, Hetzner VPS, Vercel</p>
+          <p>AI-assisted engineering: Cursor rules, AGENTS.md / CLAUDE.md, agent skills and subagents, agent hooks, ElevenLabs / OpenAI APIs</p>
           <p>
             AI workflow: research, scaffolding, and refactors in the loop;
             architecture and review stay mine
