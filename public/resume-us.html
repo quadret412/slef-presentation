@@ -97,6 +97,7 @@
         text-transform: uppercase;
       }
 
+      .summary + .summary { margin-top: 4px; }
       .summary {
         font-size: 10.5pt;
         line-height: 1.35;
@@ -200,6 +201,7 @@
           text-decoration: none;
         }
       }
+      @media print { .sheet { zoom: 0.8; } }
     </style>
   </head>
   <body>
@@ -212,237 +214,117 @@
       <article class="sheet">
         <header>
           <h1>Dmitry Antonov</h1>
-          <p class="contact">
-            Senior Frontend Engineer<br />
-            Remote<br />
-            quadret412@gmail.com<br />
-            <a href="https://www.linkedin.com/in/dmitry-antonov-web-developer"
-              >linkedin.com/in/dmitry-antonov-web-developer</a
-            >
-            |
-            <a href="https://github.com/quadret412">github.com/quadret412</a>
-            |
-            <a href="https://t.me/quadret412">t.me/quadret412</a>
-          </p>
+          <p class="contact">Senior Frontend Engineer · Vue.js · TypeScript · Design Systems · Real-Time Web Apps</p>
         </header>
-
-        <h2>Summary</h2>
-        <p class="summary">
-          Senior Frontend Engineer with 6+ years in Vue, React, and TypeScript.
-          I own real-time frontends from architecture through ship. At Looptain:
-          one Vue 3 codebase, 3 brands, JS bundle cut about 30%, Lighthouse load
-          ~2.0s to ~1.5s, gameplay UI holding 60/30 FPS. Across previous teams, hands-on people
-          management: hiring, 1:1s with developers, and leading engineers. Now building Noxaren, a
-          casino game platform (player app, operator console, NestJS API). I use
-          AI for research, scaffolding, and refactors; architecture and review
-          stay mine. Open to Senior Frontend and UI Platform roles. Remote.
-        </p>
-
+        <p class="summary">I own Vue 3 + TypeScript frontends for real-time, multi-brand products - architecture, design system, and the metrics after ship. Open to Senior Frontend and UI Platform roles. Remote.</p>
+        <p class="contact">Email <a href="mailto:quadret412@gmail.com">quadret412@gmail.com</a> | LinkedIn <a href="https://www.linkedin.com/in/dmitry-antonov-web-developer">linkedin.com/in/dmitry-antonov-web-developer</a> | GitHub <a href="https://github.com/quadret412">github.com/quadret412</a> | Telegram <a href="https://t.me/quadret412">@quadret412</a></p>
+        <p class="summary"><strong>6+ years</strong> Vue / TypeScript | <strong>3 brands</strong> one Vue 3 codebase | <strong>~30%</strong> smaller JS bundle | <strong>2.0s to 1.5s</strong> Lighthouse load | <strong>60 / 30 FPS</strong> desktop / mobile gameplay UI</p>
+        <h2>About</h2>
+        <p class="summary">I ship Vue, React, and TypeScript products end to end: spec, architecture, UI, tests, then the numbers. At Looptain that was one codebase for three live brands, a token-driven design system, and real-time gameplay plus wallet sync over WebSockets. I am now building Noxaren, a casino game platform: React player app, operator console, and the NestJS API behind them.</p>
+        <p class="summary">The work I care about is usually invisible in a GitHub sample. Animation pipelines that hold 60/30 FPS. A JavaScript bundle cut by about 30%. Lighthouse load from ~2.0s to ~1.5s. PostHog owned on the frontend - flags, experiments, offer timing - not bolted on after launch.</p>
+        <p class="summary">I use AI as leverage for research, scaffolding, refactoring, and first drafts, and I set up team AI workflows: Cursor rules, AGENTS.md, agent skills, and review hooks. Architecture and code review stay with me. I do not ship generated slop. If it goes out, I can defend every line.</p>
+        <p class="summary">At Looptain I worked with product, design, backend, QA, and data in a six-engineer team. Across previous teams I have hands-on people management experience: hiring, 1:1s with developers, and leading engineers day to day. Native Russian. English for speech, writing, and technical docs. Remote.</p>
         <h2>Experience</h2>
-
         <section class="job">
           <p class="job-title">Senior Frontend Engineer</p>
-          <p class="job-meta">Noxaren | Independent, Remote | Aug 2026 - Present</p>
-          <ul>
-            <li>
-              Built the React + TypeScript player app with four game modes
-              (Crash, Plinko, Chicken, Tower), each with its own real-time
-              rendering loop held at 60 FPS.
-            </li>
-            <li>
-              Live:
-              <a href="https://noxaren.com/crash">noxaren.com/crash</a>,
-              <a href="https://noxaren.com/plinko">noxaren.com/plinko</a>,
-              <a href="https://noxaren.com/chicken">noxaren.com/chicken</a>,
-              <a href="https://noxaren.com/tower">noxaren.com/tower</a>.
-            </li>
-            <li>
-              Real-time game and wallet state over Socket.IO with
-              server-authoritative results; the client animates to the settled
-              outcome (multiplier curve, physics landing, multiplayer cash-outs).
-            </li>
-            <li>
-              Theme tokens and brand assets so one frontend reskins without
-              forking the game UI.
-            </li>
-            <li>
-              Shipped the operator console (React, MUI): users, risk alerts,
-              bans, balance adjustments, per-game RTP, VIP, and retention on the
-              same NestJS API.
-            </li>
-            <li>
-              pnpm workspaces + Turborepo monorepo: apps/api (NestJS) and apps/web (React + Vite) on shared internal packages (@repo/contracts, game-math, game-sim, provably-fair).
-            </li>
-            <li>
-              GitHub Actions CI/CD: lint, typecheck, and tests; Monte Carlo RTP verification over 1M samples; Prisma migrations checked on a fresh database; Docker image builds; automated SSH deploy to a Docker Compose VPS with a health check.
-            </li>
-            <li>
-              AI-assisted team workflow in the repo: AGENTS.md, 15 Cursor rules (platform core, API boundaries, game packages, new-game process, pre-commit review, memory leaks, performance), 30 skills, 4 custom subagents, and a preToolUse hook that guards agent edits. Shipped a "Verify with AI" provably-fair feature that builds an audit prompt from round data.
-            </li>
-          </ul>
+          <p class="job-meta">Aug 2026 - Present | 2 mo | Independent · Remote</p>
+          <p class="job-meta">Noxaren</p>
+          <p class="summary">Building Noxaren, a casino game platform: player app, operator console, and the NestJS API. Virtual NOX only. The server settles every result.</p>
+          <ul><li>Built the React + TypeScript player app with four game modes (Crash, Plinko, Chicken, Tower), each with its own real-time rendering loop held at 60 FPS.</li><li>Real-time game and wallet state over Socket.IO with server-authoritative results; the client animates to the settled outcome (multiplier curve, physics landing, multiplayer cash-outs).</li><li>Theme tokens and brand assets so one frontend reskins without forking the game UI.</li><li>Shipped the operator console (React, MUI): users, risk alerts, bans, balance adjustments, per-game RTP, VIP, and retention on the same API.</li><li>pnpm workspaces + Turborepo monorepo: apps/api (NestJS) and apps/web (React + Vite) on shared internal packages (@repo/contracts, game-math, game-sim, provably-fair).</li><li>GitHub Actions CI/CD: lint, typecheck, and tests; Monte Carlo RTP verification over 1M samples; Prisma migrations checked on a fresh database; Docker image builds; automated SSH deploy to a Docker Compose VPS with a health check.</li><li>AI-assisted team workflow in the repo: AGENTS.md, 15 Cursor rules (platform core, API boundaries, game packages, new-game process, pre-commit review, memory leaks, performance), 30 skills, 4 custom subagents, and a preToolUse hook that guards agent edits. Shipped a "Verify with AI" provably-fair feature that builds an audit prompt from round data.</li></ul>
+          <p class="job-meta">React 19 · TypeScript · Vite · Tailwind · TanStack Query · Socket.IO · MUI · NestJS</p>
+          <p class="job-meta">Live: <a href="https://noxaren.com/crash">noxaren.com/crash</a> · <a href="https://noxaren.com/plinko">noxaren.com/plinko</a> · <a href="https://noxaren.com/chicken">noxaren.com/chicken</a> · <a href="https://noxaren.com/tower">noxaren.com/tower</a></p>
         </section>
-
         <section class="job">
           <p class="job-title">Senior Frontend Developer</p>
-          <p class="job-meta">Looptain.Limited | Remote | May 2024 - Oct 2026</p>
-          <ul>
-            <li>
-              Built and maintained core real-time surfaces (crate opening,
-              roulette, case battles, miner) with low-latency WebSocket game
-              state and wallet sync for hundreds of concurrent players.
-            </li>
-            <li>
-              Owned the V2 UI platform: 50+ reusable components, Storybook,
-              Figma design tokens; one codebase serving 3 production brands.
-            </li>
-            <li>
-              Cut JS bundle ~30% (code splitting, dependencies, build config)
-              and Lighthouse load ~2.0s to ~1.5s (lazy routes, asset delivery,
-              render strategy).
-            </li>
-            <li>
-              Engineered animation pipelines that hold 60/30 FPS on crate and
-              gameplay UI (render and DOM budgets, mobile and desktop).
-            </li>
-            <li>
-              Designed wallet and transaction UI synced with backend over REST
-              and WebSockets.
-            </li>
-            <li>
-              Owned frontend PostHog: SDK, identify, feature flags, experiments,
-              session replay, surveys; offer-modal targeting with backend and
-              product.
-            </li>
-            <li>
-              Code review and architecture guidance in a 6-engineer team;
-              Vitest/Jest and Playwright on gameplay and money paths.
-            </li>
-            <li>
-              Set up AI-assisted workflows for the team, committed to the repo: AGENTS.md, CLAUDE.md, .cursorrules, and 11 Cursor rules (commit format, pre-commit code review, memory-leak review, test-coverage gate, multi-brand workflow, UI rules), plus pinned GSAP agent skills.
-            </li>
-          </ul>
+          <p class="job-meta">May 2024 - Oct 2026 | 2 yr 5 mo | Remote</p>
+          <p class="job-meta">Looptain.Limited</p>
+          <p class="summary">Owned the Vue 3 + TypeScript frontend for a real-time web platform: architecture, design system, gameplay UI, wallet, and product analytics. Spec → ship → metrics with product, design, backend, QA, and data.</p>
+          <ul><li>Built and maintained core real-time surfaces (live rooms, rounds, and match flows) with low-latency WebSocket game state and wallet sync for hundreds of concurrent players.</li><li>Owned the V2 UI platform: 50+ reusable components, Storybook, Figma design tokens; one codebase serving 3 production brands.</li><li>Cut JS bundle ~30% (Vite analyzer: code splitting, deps, build config) and Lighthouse load ~2.0s → ~1.5s (lazy routes, asset delivery, render strategy).</li><li>Engineered animation pipelines that hold 60/30 FPS on live gameplay UI (render + DOM budgets, mobile and desktop).</li><li>Designed wallet and transaction UI synced with backend over REST and WebSockets.</li><li>Owned frontend PostHog: SDK, identify, feature flags, experiments, session replay, surveys; offer-modal targeting with backend and product.</li><li>Code review and architecture guidance in a 6-engineer team; Vitest/Jest and Playwright on gameplay and money paths.</li><li>Set up AI-assisted workflows for the team, committed to the repo: AGENTS.md, CLAUDE.md, .cursorrules, and 11 Cursor rules (commit format, pre-commit code review, memory-leak review, test-coverage gate, multi-brand workflow, UI rules), plus pinned GSAP agent skills.</li></ul>
+          <p class="job-meta">Vue 3 · TypeScript · Pinia · Vite · Tailwind · WebSockets · Storybook · PostHog · Playwright</p>
         </section>
-
-        <section class="job">
-          <p class="job-title">Ugu - bedtime-tales Telegram bot + React PWA</p>
-          <p class="job-meta">Own product | Remote</p>
-          <ul>
-            <li>
-              ElevenLabs TTS (eleven_v3) in production; OpenAI GPT-4o tale generation and Whisper STT integrated in code.
-            </li>
-            <li>
-              FastAPI, PostgreSQL, Redis, React PWA; Docker Compose on a Hetzner VPS behind Caddy (HTTPS), deployed by GitHub Actions.
-            </li>
-          </ul>
-        </section>
-
         <section class="job">
           <p class="job-title">Freelance Frontend Developer / Independent Projects</p>
-          <p class="job-meta">Self-employed | Remote | Aug 2022 - Apr 2024</p>
-          <ul>
-            <li>
-              Freelance Vue, Nuxt, and React work for small clients: feature
-              development, refactors, and performance fixes.
-            </li>
-            <li>
-              Built a multilingual Nuxt SSR blog from scratch with its own
-              publishing admin, Tailwind UI, and SEO setup (under NDA).
-            </li>
-            <li>
-              Own projects to deepen fullstack skills: Node.js / NestJS APIs and
-              real-time features with Socket.IO.
-            </li>
-          </ul>
+          <p class="job-meta">Aug 2022 - Apr 2024 | 1 yr 9 mo | Remote</p>
+          <p class="job-meta">Self-employed</p>
+          <p class="summary">Freelance frontend work and own projects between full-time roles.</p>
+          <ul><li>Freelance Vue, Nuxt, and React work for small clients: feature development, refactors, and performance fixes.</li><li>Built a multilingual Nuxt SSR blog from scratch with its own publishing admin, Tailwind UI, and SEO setup (under NDA).</li><li>Own projects to deepen fullstack skills: Node.js / NestJS APIs and real-time features with Socket.IO.</li></ul>
+          <p class="job-meta">Vue 3 · Nuxt.js · SSR · React · Tailwind · Node.js · NestJS</p>
         </section>
-
         <section class="job">
           <p class="job-title">Middle+ Frontend Developer</p>
-          <p class="job-meta">Insider | Turkiye, Remote | Sep 2021 - Jul 2022</p>
-          <ul>
-            <li>
-              Shipped complex Vue.js and vanilla JavaScript UI integrated with
-              PHP and Go APIs for a customer-engagement platform used by global
-              enterprise clients.
-            </li>
-            <li>
-              Designed and published internal NPM packages reused across
-              multiple frontend projects.
-            </li>
-            <li>
-              Contributed to frontend architecture and component standards with
-              backend and product.
-            </li>
-          </ul>
+          <p class="job-meta">Sep 2021 - Jul 2022 | 11 mo | Türkiye · Remote</p>
+          <p class="job-meta">Insider</p>
+          <p class="summary">Customer-engagement and marketing automation platform used by global enterprise clients.</p>
+          <ul><li>Shipped complex Vue.js and vanilla JavaScript UI integrated with PHP and Go APIs.</li><li>Designed and published internal NPM packages reused across multiple frontend projects.</li><li>Contributed to frontend architecture and component standards with backend and product.</li></ul>
+          <p class="job-meta">Vue.js · JavaScript · NPM · REST · PHP · Go</p>
         </section>
-
         <section class="job">
           <p class="job-title">Middle Frontend Developer</p>
-          <p class="job-meta">Unicode | Moscow, Remote | Dec 2020 - Dec 2021 (overlap: project handover)</p>
-          <ul>
-            <li>
-              Built and maintained the Vue.js editor and site-rendering UI for
-              a visual website constructor: layout, blocks, preview, and
-              publish.
-            </li>
-            <li>
-              Integrated frontend with Python APIs for save/load, assets, and
-              publish.
-            </li>
-            <li>
-              Improved desktop and mobile performance of the constructor and the
-              generated sites.
-            </li>
-            <li>
-              Automated tests with Jest on critical editor and publish paths.
-            </li>
-            <li>
-              Mentored junior developers and reviewed PRs with design and
-              backend.
-            </li>
-          </ul>
+          <p class="job-meta">Dec 2020 - Dec 2021 | 1 yr 1 mo · overlap: project handover | Moscow · Remote</p>
+          <p class="job-meta">Unicode</p>
+          <p class="summary">Visual website constructor - a Tilda-style site builder for user-generated pages.</p>
+          <ul><li>Built and maintained the Vue.js editor and site-rendering UI: layout, blocks, preview, and publish.</li><li>Integrated frontend with Python APIs for save/load, assets, and publish.</li><li>Improved desktop and mobile performance of the constructor and the generated sites.</li><li>Automated tests with Jest on critical editor and publish paths.</li><li>Mentored junior developers and reviewed PRs with design and backend.</li></ul>
+          <p class="job-meta">Vue.js · JavaScript · Jest · REST · Python</p>
         </section>
-
         <section class="job">
           <p class="job-title">Frontend Developer</p>
-          <p class="job-meta">
-            SEDEMO Trading and Investments | Poland | Dec 2019 - Jan 2021
-          </p>
-          <ul>
-            <li>
-              Built responsive Vue.js and Nuxt.js UI for crate/case flows and
-              related game surfaces.
-            </li>
-            <li>
-              Integrated frontend with PHP APIs for catalog, open/result, and
-              user state.
-            </li>
-            <li>
-              Improved performance and layout across desktop and mobile in
-              production.
-            </li>
-          </ul>
+          <p class="job-meta">Dec 2019 - Jan 2021 | 1 yr 2 mo | Poland</p>
+          <p class="job-meta">SEDEMO Trading and Investments</p>
+          <p class="summary">Real-time live platform - the same product class as the later roles.</p>
+          <ul><li>Built responsive Vue.js and Nuxt.js UI for live room flows and related game surfaces.</li><li>Integrated frontend with PHP APIs for catalog, open/result, and user state.</li><li>Improved performance and layout across desktop and mobile in production.</li></ul>
+          <p class="job-meta">Vue.js · Nuxt.js · JavaScript · SCSS · REST · PHP</p>
         </section>
-
-        <h2>Skills</h2>
+        <h2>Selected work</h2>
+        <section class="job">
+          <p class="job-title">Noxaren</p>
+          <p class="job-meta">Independent · Aug 2026–present</p>
+          <p class="summary">Casino game platform: React player app, operator console, and a NestJS API. Virtual NOX only.</p>
+          <p class="summary">Four game modes with real-time rendering at 60 FPS, animated to server-authoritative results over Socket.IO; theme tokens for reskins. Admin covers users, risk, bans, RTP, VIP, and retention.</p>
+          <p class="job-meta">React 19 · TypeScript · Vite · Tailwind · Socket.IO · MUI</p>
+        </section>
+        <section class="job">
+          <p class="job-title">Ugu</p>
+          <p class="job-meta">Independent · own product</p>
+          <p class="summary">Bedtime-tales Telegram bot and React PWA with a web cabinet.</p>
+          <p class="summary">ElevenLabs TTS (eleven_v3) in production; OpenAI GPT-4o tale generation and Whisper STT integrated in code. Docker Compose on a Hetzner VPS behind Caddy (HTTPS), deployed by GitHub Actions.</p>
+          <p class="job-meta">FastAPI · PostgreSQL · Redis · React PWA · ElevenLabs · OpenAI API · Docker</p>
+        </section>
+        <section class="job">
+          <p class="job-title">Multi-brand real-time platform</p>
+          <p class="job-meta">Looptain · 2024–2026</p>
+          <p class="summary">One Vue 3 + TypeScript frontend serving three live brands, with gameplay and wallet state over WebSockets.</p>
+          <p class="summary">Hundreds of concurrent players on live rooms and match surfaces. Low-latency game state and wallet sync.</p>
+          <p class="job-meta">Vue 3 · TypeScript · Pinia · WebSockets · Vite</p>
+        </section>
+        <section class="job">
+          <p class="job-title">V2 UI platform</p>
+          <p class="job-meta">Looptain · design system</p>
+          <p class="summary">Token-driven component library that replaced one-off brand UI with a single production system.</p>
+          <p class="summary">50+ reusable components, Storybook, Figma tokens. One codebase, three production brands, CDN-delivered assets.</p>
+          <p class="job-meta">Storybook · Figma tokens · Tailwind · SCSS</p>
+        </section>
+        <section class="job">
+          <p class="job-title">Client performance program</p>
+          <p class="job-meta">Looptain · platform</p>
+          <p class="summary">Bundle, load, and frame-budget work on interactive gameplay UI - not a marketing landing page.</p>
+          <p class="summary">JS bundle about −30%. Lighthouse load ~2.0s → ~1.5s. Animation pipelines holding 60/30 FPS on live gameplay screens.</p>
+          <p class="job-meta">Vite · Webpack · Lighthouse · GSAP</p>
+        </section>
+        <section class="job">
+          <p class="job-title">Visual site constructor</p>
+          <p class="job-meta">Unicode · 2020–2021</p>
+          <p class="summary">Editor and renderer for user-generated sites: layout, blocks, preview, publish.</p>
+          <p class="summary">Python API integration for structure and assets. Jest coverage on editor and publish. Mentored juniors on the same codebase.</p>
+          <p class="job-meta">Vue.js · Jest · Python APIs</p>
+        </section>
+        <h2>Stack</h2>
         <div class="skills">
-          <p>
-            Vue 3, Nuxt.js, React, TypeScript, JavaScript, Pinia, TanStack Query,
-            SSR, i18n, PWA
-          </p>
-          <p>
-            Design systems, Storybook, Figma tokens, Tailwind CSS, SCSS,
-            component architecture
-          </p>
-          <p>Node.js, NestJS, Socket.IO, WebSockets, REST, MUI</p>
-          <p>PostHog, feature flags, wallet / payments UI</p>
-          <p>Vitest, Jest, Playwright, Vite, Webpack, GSAP, Git, CI/CD</p>
-          <p>pnpm workspaces, Turborepo, GitHub Actions, Docker / Compose, Caddy, Hetzner VPS, Vercel</p>
-          <p>AI-assisted engineering: Cursor rules, AGENTS.md / CLAUDE.md, agent skills and subagents, agent hooks, ElevenLabs / OpenAI APIs</p>
-          <p>
-            AI workflow: research, scaffolding, and refactors in the loop;
-            architecture and review stay mine
-          </p>
-          <p>English (professional), Russian (native)</p>
+          <p><strong>Interface</strong> Vue 3 · Nuxt.js · React · TypeScript · JavaScript · Pinia · TanStack Query · SSR · i18n · PWA · MUI</p>
+          <p><strong>Systems</strong> Design systems · Storybook · Figma tokens · Tailwind CSS · SCSS · Component architecture</p>
+          <p><strong>Realtime &amp; data</strong> Node.js · NestJS · Socket.IO · WebSockets · REST · PostHog · Feature flags · Wallet / payments UI</p>
+          <p><strong>Quality</strong> Vitest · Jest · Playwright · Vite · Webpack · GSAP · Git · CI/CD</p>
+          <p><strong>AI-assisted engineering</strong> Cursor rules · AGENTS.md / CLAUDE.md · Agent skills &amp; subagents · Agent hooks · ElevenLabs / OpenAI APIs</p>
+          <p><strong>Delivery &amp; infra</strong> pnpm workspaces · Turborepo · GitHub Actions · Docker / Compose · Caddy · Hetzner VPS · Vercel</p>
         </div>
       </article>
     </div>
