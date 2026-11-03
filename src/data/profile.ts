@@ -3,7 +3,7 @@ export const profile = {
   shortName: "DA",
   title: "Senior Frontend Engineer",
   headline:
-    "Vue.js · TypeScript · Design Systems · Real-Time Web Apps",
+    "Vue.js · TypeScript · Design Systems · Real-Time Web Apps · iGaming",
   workMode: "Remote",
   years: "6+",
   email: "quadret412@gmail.com",
@@ -64,10 +64,10 @@ export const profile = {
       summary:
         "Owned the Vue 3 + TypeScript frontend for a real-time web platform: architecture, design system, gameplay UI, wallet, and product analytics. Spec → ship → metrics with product, design, backend, QA, and data.",
       bullets: [
-        "Built and maintained core real-time surfaces (live rooms, rounds, and match flows) with low-latency WebSocket game state and wallet sync for hundreds of concurrent players.",
+        "Built and maintained core real-time surfaces (real-time case opening, roulette, case battles, miner) over WebSockets, with game and wallet state synced with the backend for several hundred concurrent users.",
         "Owned the V2 UI platform: 50+ reusable components, Storybook, Figma design tokens; one codebase serving 3 production brands.",
         "Cut JS bundle ~30% (Vite analyzer: code splitting, deps, build config) and Lighthouse load ~2.0s → ~1.5s (lazy routes, asset delivery, render strategy).",
-        "Engineered animation pipelines that hold 60/30 FPS on live gameplay UI (render + DOM budgets, mobile and desktop).",
+        "Engineered animation pipelines that hold 60/30 FPS on case-opening and gameplay UI, including Spine animations at 60 FPS on mobile (render + DOM budgets).",
         "Designed wallet and transaction UI synced with backend over REST and WebSockets.",
         "Owned frontend PostHog: SDK, identify, feature flags, experiments, session replay, surveys; offer-modal targeting with backend and product.",
         "Code review and architecture guidance in a 6-engineer team; Vitest/Jest and Playwright on gameplay and money paths.",
@@ -143,9 +143,9 @@ export const profile = {
       duration: "1 yr 2 mo",
       place: "Poland",
       summary:
-        "Real-time live platform - the same product class as the later roles.",
+        "Real-time gaming / case-opening platform - the same product class as the later roles.",
       bullets: [
-        "Built responsive Vue.js and Nuxt.js UI for live room flows and related game surfaces.",
+        "Built responsive Vue.js and Nuxt.js UI for case-opening flows and related game surfaces.",
         "Integrated frontend with PHP APIs for catalog, open/result, and user state.",
         "Improved performance and layout across desktop and mobile in production.",
       ],
@@ -177,7 +177,7 @@ export const profile = {
       oneLiner:
         "One Vue 3 + TypeScript frontend serving three live brands, with gameplay and wallet state over WebSockets.",
       outcome:
-        "Hundreds of concurrent players on live rooms and match surfaces. Low-latency game state and wallet sync.",
+        "Hundreds of concurrent players on case opening, roulette, case battles, and miner surfaces. Low-latency game state and wallet sync.",
       stack: ["Vue 3", "TypeScript", "Pinia", "WebSockets", "Vite"],
     },
     {
@@ -195,7 +195,7 @@ export const profile = {
       oneLiner:
         "Bundle, load, and frame-budget work on interactive gameplay UI - not a marketing landing page.",
       outcome:
-        "JS bundle about −30%. Lighthouse load ~2.0s → ~1.5s. Animation pipelines holding 60/30 FPS on live gameplay screens.",
+        "JS bundle about −30%. Lighthouse load ~2.0s → ~1.5s. Animation pipelines holding 60/30 FPS on case-opening and gameplay screens.",
       stack: ["Vite", "Webpack", "Lighthouse", "GSAP"],
     },
     {
